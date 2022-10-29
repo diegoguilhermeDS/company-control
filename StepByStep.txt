@@ -1,0 +1,24 @@
+1 - Home Page
+    a. estruturação
+    b. estilização
+        1. botão
+        2. textos
+        3. select
+
+    c. moblie
+        1. ajuste a tela
+        2. animação botão
+
+    d. lógica
+        1. Consumir da Api as empresasa cadastradas
+        2. filtro por setor
+        3. evento nos botão de login e registro
+
+
+2 - Register
+
+3 - Login
+
+4 - Page User
+
+5 - Page Admin
