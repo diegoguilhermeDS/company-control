@@ -15,7 +15,7 @@
     color: var(--color-grey-800);
 }
 .button-brand-1:hover {
-    
+    opacity: 60%;
 }
 
 .button-brand-2 {
