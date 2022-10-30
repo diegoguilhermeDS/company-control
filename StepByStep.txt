@@ -1,8 +1,8 @@
 1 - Home Page
     a. estruturação - OK
     b. estilização
-        1. botão
-        2. textos
+        1. botão - OK
+        2. textos -
         3. select
 
     c. moblie
