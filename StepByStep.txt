@@ -1,9 +1,9 @@
 1 - Home Page
     a. estruturação - OK
-    b. estilização
+    b. estilização - OK
         1. botão - OK
         2. textos - OK
-        3. select
+        3. select - OK
 
     c. moblie
         1. ajuste a tela
