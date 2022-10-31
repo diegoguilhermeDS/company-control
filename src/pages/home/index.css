@@ -54,10 +54,9 @@
 
 .company {
     width: 100%;
-    height: 7.5rem;
     background-color: var(--color-grey-700);
     border-bottom: 1px solid var(--color-brand-200);
-    padding: 0.4rem 1.5rem;
+    padding: 1.4rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: var(--gap-6);
@@ -72,6 +71,7 @@ select {
     border-radius: var(--radius-3) var(--radius-3) 0 0 ;
     color: var(--color-grey-800);
     height: 60px;
+    padding: 0.75rem 0;
     cursor: pointer;
     outline: none;
 }
@@ -103,10 +103,20 @@ option {
         width: 100%;
         justify-content: space-between;
         display: none;
+        /* transition: 0.3s ease-in; */
+        /* animation: 0.7s showMenu ease; */
     }
 
     .button-base {
         width: 100%;
+    }
+
+    .sector-btn {
+        max-width: 60%;
+    }
+
+    .button-menu {
+        display: flex;
     }
 
     .container-main {
@@ -141,5 +151,28 @@ option {
     .company > h3 {
         width: 13rem;
         margin-bottom: 4rem;
+    }
+}
+
+
+@keyframes showMenu {
+    0%{
+        margin-top: -20%;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes closeMenu {
+    0%{
+        margin-top: 0;
+        opacity: 1;
+    }
+    100% {
+        margin-top: -15%;
+        opacity: 0;
     }
 }
