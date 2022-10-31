@@ -13,18 +13,28 @@ async function renderSectorOption() {
 
         select.appendChild(opt)
     })
-    
-    renderCompaniesHomePage()
+    if (select.options[select.selectedIndex].text == "Selecionar Setor") {
+        renderCompaniesHomePage()
+    }
+    select.addEventListener("change", () => {
+        let sectorTextCurrency = select.options[select.selectedIndex].text
+
+        if (sectorTextCurrency == "Selecionar Setor") {
+            renderCompaniesHomePage()
+        } else {
+            renderCompaniesHomePage(sectorTextCurrency)
+        }
+    })
 }
 
 
-async function renderCompaniesHomePage() {
+async function renderCompaniesHomePage(sector = '') {
     const ul = document.querySelector(".list-companies")
+    ul.innerHTML = ''
 
-    let listApiCompanies = await getAllCompanies()
+    let listApiCompanies = await getAllCompanies(sector)
 
     listApiCompanies.forEach((comp) => {
-        console.log(comp)
         const { uuid, name, opening_hours, sectors } = comp
         let li = document.createElement("li")
         li.classList.add("company")
