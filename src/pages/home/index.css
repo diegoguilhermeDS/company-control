@@ -13,9 +13,13 @@
     height: 100%;
 }
 
-.form-homepage {
+.form-header {
     display: flex;
     gap: var(--gap-6);
+}
+
+.form-show {
+    display: none;
 }
 
 /* Style Main */
@@ -99,12 +103,10 @@ option {
         padding: 0.875rem;
     }
 
-    .form-homepage {
+    .form-header {
         width: 100%;
         justify-content: space-between;
-        display: none;
-        /* transition: 0.3s ease-in; */
-        /* animation: 0.7s showMenu ease; */
+        display: flex;
     }
 
     .button-base {
