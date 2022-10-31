@@ -9,10 +9,10 @@
         1. ajuste a tela - OK
         2. animação botão - OK
 
-    d. lógica
+    d. lógica -
         1. Consumir da Api as empresasa cadastradas - OK
-        2. filtro por setor -
-        3. evento nos botão de login e registro
+        2. filtro por setor - OK
+        3. evento nos botão de login e registro - 
 
     fix MoblieFirst
 
