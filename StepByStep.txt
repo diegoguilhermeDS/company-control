@@ -6,8 +6,8 @@
         3. select - OK
 
     c. moblie
-        1. ajuste a tela
-        2. animação botão
+        1. ajuste a tela - OK
+        2. animação botão -
 
     d. lógica
         1. Consumir da Api as empresasa cadastradas

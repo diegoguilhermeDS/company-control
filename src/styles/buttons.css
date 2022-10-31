@@ -26,3 +26,26 @@
 .button-brand-2:hover {
     opacity: 60%;
 }
+
+
+/* style btn sector */
+.sector-btn {
+    border: 1px solid var(--color-brand-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 0.35rem 1rem;
+    max-width: 60%;
+} 
+
+
+/* style btn menu */
+.button-menu {
+    border: none;
+    background-color: transparent;
+}
+
+.button-menu:hover {
+    opacity: 40%;
+}
