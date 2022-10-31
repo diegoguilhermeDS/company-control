@@ -40,7 +40,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-3);
-    overflow-y: auto;
+    overflow: auto;
+    background-color: var(--color-grey-800);
 }
 .list-companies::-webkit-scrollbar {
     overflow: hidden;
@@ -54,8 +55,8 @@
 .company {
     width: 100%;
     height: 7.5rem;
-    border: 1px solid var(--color-brand-200);
-    border-radius: var(--radius-3);
+    background-color: var(--color-grey-700);
+    border-bottom: 1px solid var(--color-brand-200);
     padding: 0.4rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -83,3 +84,62 @@ option {
     cursor: pointer;
 }
 
+
+
+
+@media (max-width: 700px) {
+    .container-header {
+        margin-bottom: 1.375rem;
+        height: 100%;
+    }
+
+    .container-content-header {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 0.875rem;
+    }
+
+    .form-homepage {
+        width: 100%;
+        justify-content: space-between;
+        display: none;
+    }
+
+    .button-base {
+        width: 100%;
+    }
+
+    .container-main {
+        padding: 0 0.875rem;
+    }
+
+    .section-banner {
+        display: none;
+    }
+
+    .section-list-companies {
+        margin: 0 auto;
+        height: 20.625rem;
+        width: 20.625rem;
+        min-width: 18rem;
+        justify-content: space-between;
+    }
+
+    .list-companies {
+        flex-direction: row;
+        align-items: center;
+        padding: 0 1.25rem;
+        height: 82%;
+    }
+
+    .company {
+        margin-top: 10px;
+        height: 13.125rem;
+
+    }
+
+    .company > h3 {
+        width: 13rem;
+        margin-bottom: 4rem;
+    }
+}
