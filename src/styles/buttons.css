@@ -36,7 +36,7 @@
     align-items: center;
     border-radius: 1rem;
     padding: 0.35rem 1rem;
-    max-width: 60%;
+    max-width: 35%;
 } 
 
 
@@ -44,6 +44,7 @@
 .button-menu {
     border: none;
     background-color: transparent;
+    display: none;
 }
 
 .button-menu:hover {
