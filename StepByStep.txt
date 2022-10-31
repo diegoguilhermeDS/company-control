@@ -5,15 +5,16 @@
         2. textos - OK
         3. select - OK
 
-    c. moblie - OK
+    c. moblieFist - OK
         1. ajuste a tela - OK
         2. animação botão - OK
 
     d. lógica
-        1. Consumir da Api as empresasa cadastradas - 
-        2. filtro por setor
+        1. Consumir da Api as empresasa cadastradas - OK
+        2. filtro por setor -
         3. evento nos botão de login e registro
 
+    fix MoblieFirst
 
 2 - Register
 
