@@ -7,6 +7,8 @@
     font-size: var(--font-size-3);
     font-weight: 600;
     line-height: 120%;
+    width: 100%;
+    text-align: center;
 }
 
 .button-brand-1 {
@@ -36,18 +38,18 @@
     align-items: center;
     border-radius: 1rem;
     padding: 0.35rem 1rem;
-    max-width: 35%;
     cursor: default;
+    max-width: 60%;
 } 
 
 
 /* style btn menu */
-.button-menu {
+.button-menu-icon {
     border: none;
     background-color: transparent;
-    display: none;
+    display: flex;
 }
 
-.button-menu:hover {
+.button-menu-icon:hover {
     opacity: 40%;
 }

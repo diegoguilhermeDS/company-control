@@ -14,7 +14,7 @@
         2. filtro por setor - OK
         3. evento nos botão de login e registro - OK
 
-    fix MoblieFirst / CSS
+    fix MoblieFirst / CSS - 
 
 2 - Register
 

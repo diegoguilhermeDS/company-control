@@ -42,8 +42,10 @@ async function renderCompaniesHomePage(sector = '') {
 
         li.innerHTML = `
             <h3 class="font-3-bold">${name}</h3>
-            <span class="font-4-regular">${opening_hours} horas</span>
-            <span class="font-4-regular sector-btn">${sectors.description}</span>
+            <div>
+                <span class="font-4-regular">${opening_hours} horas</span>
+                <span class="font-4-regular sector-btn">${sectors.description}</span>
+            </div>
         `
 
         ul.appendChild(li)
