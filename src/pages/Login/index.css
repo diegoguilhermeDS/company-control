@@ -1,0 +1,115 @@
+body {
+    height: 100vh;
+}
+
+/* Style Header */
+.container-header {
+    box-shadow: 0px 5px 10px -11px black;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.container-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    height: 100%;
+    padding: 0.875rem;
+    background-color: #fff;
+}
+
+.nav-header {
+    display: none;
+    justify-content: space-between;
+    gap: var(--gap-6);
+    width: 100%;
+    animation: 0.7s showMenu ease;
+}
+
+.nav-show {
+    display: flex;  
+}
+
+/* Style Main */
+.container-main {
+    background-image: url("/src/assets/img/Rectangle\ 7.png");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 87%; 
+    width: 100%; 
+    position: absolute;
+    top: 70px; 
+    z-index: 0;
+}
+
+.container-form-login {
+    width: 100%;
+    margin-top: 1.75rem;
+    background-color: var(--color-grey-900);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+    padding: 2.5rem 1.25rem;
+}
+
+.container-form-login > form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+    text-align: center;
+}
+
+
+@media (min-width: 700px) {
+    /* style header desktop */
+    .container-header {
+        height: 5rem;
+        margin-bottom: 2.75rem;
+    }
+
+    .button-menu-icon {
+        display: none;
+    }
+
+    .container-content-header {
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+
+    .nav-header {
+        width: 24%;
+        display: flex;
+        animation: none;
+    }
+
+    /* Style Main */
+    .container-main {
+        top: 5rem;
+        height: 88%;
+    }
+
+    .container-form-login {
+        width: 31.25rem;
+        margin: 5.75rem auto;
+        padding: 2.5rem;
+        gap: var(--gap-1);
+    }
+}
+
+@keyframes showMenu {
+    0%{
+        margin-top: -20%;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}

@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Stark Industry Login</title>
+   <link rel="stylesheet" href="/src/styles/globalStyle.css">
+   <link rel="stylesheet" href="/src/styles/texts.css">
+   <link rel="stylesheet" href="/src/styles/buttons.css">
+   <link rel="stylesheet" href="/src/styles/inputs.css">
+   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-   <h1>Login</h1> 
+   <header class="container-header">
+       <div class="container container-content-header">
+           <h1 class="font-2-semibold">Stark Industry</h1>
+           <button class="button-menu-icon" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+           <nav class="nav-header">
+               <a href="/src/pages/home/index.html" target="_self" class="button-base button-brand-2">Home</a>
+               <a href="/src/pages/register/index.html" target="_self" class="button-base button-brand-1">Cadastro</a>
+           </nav>
+       </div>
+   </header>
+   <main class="container-main">
+        <section class="container-form-login">
+            <div class="header-form">
+                <h1 class="font-1-bold">Login</h1>
+                <span class="font-4-regular">Preencha os campos para realizar login</span>
+            </div>
+            <form>
+                <input class="input-base" type="email" name="email" id="email" placeholder="Seu e-mail">
+                <input class="input-base" type="password" name="password" id="password" placeholder="Sua senha">
+                <button type="submit" class="button-base button-brand-1">Login</button>
+                <span>ou</span>
+                <a class="button-base button-brand-2" href="/src/pages/register/index.html" target="_self">Cadastre-se</a>
+            </form>
+        </section>
+   </main>
+
+   <script type="module" src="index.js"></script>
 </body>
 </html>
