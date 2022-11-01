@@ -14,11 +14,17 @@
         2. filtro por setor - OK
         3. evento nos botão de login e registro - OK
 
-    fix MoblieFirst / CSS - 
+    fix MoblieFirst / CSS - OK
 
 2 - Register
+    a. estruturação - 
+    b. moblieFist
+    c. estilização
 
 3 - Login
+    a. estruturação -
+    b. moblieFist
+    c. estilização
 
 4 - Page User
 
