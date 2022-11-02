@@ -75,7 +75,7 @@ async function checkUserTypeApi(token) {
 }
 
 
-async function login(body) {
+async function login(body, btn) {
     try {
         const request = await fetch(`${baseUrl}auth/login`, {
             method: "POST",
@@ -86,6 +86,11 @@ async function login(body) {
         })
 
         const response = await request.json()
+
+        setTimeout(() => {
+            btn.innerHTML = "Login"
+            btn.disabled = true
+        }, 1000)
 
         if (request.ok) {
             setLocalStorage("@loginUser: token", response.token)

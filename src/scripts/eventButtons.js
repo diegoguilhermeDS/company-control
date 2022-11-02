@@ -1,8 +1,8 @@
 import { login } from "./api.js"
 
-export function eventButtonDesabled() {
-    const formLogin = document.querySelector("form")
-    const elements = [...formLogin.elements]
+export function eventButtonDesabledLogin() {
+    const form = document.querySelector("form")
+    const elements = [...form.elements]
     const buttonLogin = elements[2]
 
     elements.forEach(elem => {
@@ -15,7 +15,7 @@ export function eventButtonDesabled() {
         }
     })
 
-    eventLogin(formLogin, elements)
+    eventLogin(form, elements)
 }
 
 function eventLogin(form, elements) {
@@ -36,11 +36,24 @@ function eventLogin(form, elements) {
         elements[2].innerHTML = `
         <img class="icon-search" src="/src/assets/img/spinner.png" alt="icone de procura">
         `
-        setTimeout(() => {
-            elements[2].innerHTML = "Login"
-            elements[2].disabled = true
-        }, 3000)
         
-        await login(body)
+        await login(body, elements[2])
+    })
+}
+
+
+export function eventButtonDesabledRegister() {
+    const form = document.querySelector("form")
+    const elements = [...form.elements]
+    const button = elements.find((elem) => elem.tagName == "BUTTON")
+
+    elements.forEach(elem => {
+        if (elem.tagName == "INPUT") {
+            elem.addEventListener("keydown", () => {
+                if (elements[0].value !== "" && elements[1].value !== '' && elements[2].value !== '') {
+                    button.disabled = false
+                }
+            })
+        }
     })
 }
