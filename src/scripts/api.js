@@ -99,6 +99,42 @@ async function login(body, btn) {
             console.log(response)
         }
         
+        return response
+
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
+async function register(body, btn) {
+    try {
+        const request = await fetch(`${baseUrl}auth/register`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await  request.json()
+
+        setTimeout(() => {
+            btn.innerHTML = "Login"
+            btn.disabled = true
+        }, 1000)
+
+        if (request.ok) {
+            setTimeout(() => {
+                location.replace("/src/pages/login/index.html")
+            }, 1000)
+
+        } else {
+            console.log(response)
+        }
+
+        return response
+
     } catch (err) {
         alert(err)
     }
@@ -109,5 +145,6 @@ export {
     getAllSector,
     getAllCompanies,
     login,
-    checkUserTypeApi
+    register,
+    checkUserTypeApi,
 }
