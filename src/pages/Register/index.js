@@ -1,4 +1,4 @@
-import { eventButtonDesabledRegister } from "../../scripts/eventButtons.js";
+import { eventButtonDesabled } from "../../scripts/eventButtons.js";
 import eventShowMenu from "../../scripts/showMenu.js";
 
 eventShowMenu()
@@ -14,4 +14,4 @@ select.addEventListener("change", () => {
     }
 })
 
-eventButtonDesabledRegister()
+eventButtonDesabled("register")
