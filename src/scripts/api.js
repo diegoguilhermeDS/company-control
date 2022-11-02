@@ -1,4 +1,5 @@
 import { setLocalStorage } from "./LocalStorage.js"
+import checked from "./userChecker.js"
 
 const baseUrl = "http://localhost:6278/"
 
@@ -49,6 +50,31 @@ async function getAllCompanies(sector = '') {
 }
 
 
+async function checkUserTypeApi(token) {
+    try {
+        const request = await fetch(`${baseUrl}auth/validate_user`, {
+            method: "GET", 
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}` 
+            }
+        })
+
+        if (request.ok) {
+            const response = await request.json()
+
+            return response
+
+        }else {
+            console.log(await request.json())
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
 async function login(body) {
     try {
         const request = await fetch(`${baseUrl}auth/login`, {
@@ -62,9 +88,8 @@ async function login(body) {
         const response = await request.json()
 
         if (request.ok) {
-            console.log(response)
             setLocalStorage("@loginUser: token", response.token)
-            
+            checked()
         } else {
             console.log(response)
         }
@@ -78,5 +103,6 @@ async function login(body) {
 export {
     getAllSector,
     getAllCompanies,
-    login
+    login,
+    checkUserTypeApi
 }
