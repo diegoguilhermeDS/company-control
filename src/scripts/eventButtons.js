@@ -1,48 +1,6 @@
 import { login } from "./api.js"
 
-export function eventButtonDesabledLogin() {
-    const form = document.querySelector("form")
-    const elements = [...form.elements]
-    const buttonLogin = elements[2]
-
-    elements.forEach(elem => {
-        if (elem.tagName == "INPUT") {
-            elem.addEventListener("keydown", () => {
-                if (elements[0].value !== "" && elements[1].value !== '') {
-                    buttonLogin.disabled = false
-                }
-            })
-        }
-    })
-
-    eventLogin(form, elements)
-}
-
-function eventLogin(form, elements) {
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault()
-
-        const body = {}
-
-        elements.forEach((element) => {
-            if (element.tagName == "INPUT" && element.value !== "") {
-                body[element.id] = element.value
-            }
-
-            element.value = ''
-        })
-
-        
-        elements[2].innerHTML = `
-        <img class="icon-search" src="/src/assets/img/spinner.png" alt="icone de procura">
-        `
-        
-        await login(body, elements[2])
-    })
-}
-
-
-export function eventButtonDesabledRegister() {
+export function eventButtonDesabled(type) {
     const form = document.querySelector("form")
     const elements = [...form.elements]
     const button = elements.find((elem) => elem.tagName == "BUTTON")
@@ -50,10 +8,50 @@ export function eventButtonDesabledRegister() {
     elements.forEach(elem => {
         if (elem.tagName == "INPUT") {
             elem.addEventListener("keydown", () => {
-                if (elements[0].value !== "" && elements[1].value !== '' && elements[2].value !== '') {
-                    button.disabled = false
+                if (type == 'login') {
+                    if (elements[0].value !== "" && elements[1].value !== '') {
+                        button.disabled = false
+                    }
+                } else if (type == 'register') {
+                    if (elements[0].value !== "" && elements[1].value !== '' && elements[2].value !== '') {
+                        button.disabled = false
+                    }
                 }
             })
+        }
+    })
+
+    eventSubmit(form, elements, type)
+}
+
+function eventSubmit(form, elements, type) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+        let btn = elements.find((elem) => elem.tagName == "BUTTON")
+
+        const body = {}
+
+        elements.forEach((element) => {
+            if (element.tagName == "INPUT" && element.value !== "") {
+                body[element.id] = element.value
+            } else if (element.tagName == "SELECT" && element.value !== '0') {
+                body[element.id] = element.value
+            }
+
+            if (element.tagName == "INPUT") {
+                element.value = ''
+            } else {
+                element.value = '0'
+                element.classList.add("select-selected")
+            }
+        })
+
+        btn.innerHTML = `
+        <img class="icon-search" src="/src/assets/img/spinner.png" alt="icone de procura">
+        `
+        
+        if (type == 'login') {
+            await login(body, btn)
         }
     })
 }

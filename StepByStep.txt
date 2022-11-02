@@ -22,7 +22,7 @@
     c. estilização - OK
     d. funcionalidade
         1 - evento para habilitar botão - OK
-        2 - evento para receber dados dos inputs - 
+        2 - evento para receber dados dos inputs - OK
         3 - registro na Api - 
         4 - redirecionar para login
 
