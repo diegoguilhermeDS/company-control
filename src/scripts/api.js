@@ -1,6 +1,7 @@
-import { tooltip } from "./tooltip.js"
+import { setLocalStorage } from "./LocalStorage.js"
 
 const baseUrl = "http://localhost:6278/"
+
 
 async function getAllSector() {
     try {
@@ -62,6 +63,7 @@ async function login(body) {
 
         if (request.ok) {
             console.log(response)
+            setLocalStorage("@loginUser: token", response.token)
             
         } else {
             console.log(response)

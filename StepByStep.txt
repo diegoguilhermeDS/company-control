@@ -28,8 +28,9 @@
     d. funcionalidade
         1 - evento para habilitar botão - OK
         2 - evento para receber dados dos inputs - OK
-        3 - login na Api -
-        4 - salvar token no localStorage
+        3 - login na Api - OK
+        4 - salvar token no localStorage - OK
+        5. verificando tipo de usuário -
 
 4 - Page User
 
