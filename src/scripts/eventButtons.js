@@ -1,4 +1,4 @@
-import { login } from "./api.js"
+import { login, register } from "./api.js"
 
 export function eventButtonDesabled(type) {
     const form = document.querySelector("form")
@@ -52,6 +52,8 @@ function eventSubmit(form, elements, type) {
         
         if (type == 'login') {
             await login(body, btn)
+        } else if (type == 'register') {
+            await register(body, btn)
         }
     })
 }
