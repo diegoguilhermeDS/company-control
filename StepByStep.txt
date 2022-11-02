@@ -1,4 +1,4 @@
-1 - Home Page
+1 - Home Page FEITO
     a. estruturação - OK
     b. estilização - OK
         1. botão - OK
@@ -20,8 +20,13 @@
     a. estruturação - OK
     b. moblieFist - OK
     c. estilização - OK
+    d. funcionalidade
+        1 - evento para habilitar botão - 
+        2 - evento para receber dados dos inputs - 
+        3 - registro na Api - 
+        4 - redirecionar para login
 
-3 - Login
+3 - Login - FEITO
     a. estruturação - OK
     b. moblieFist - OK
     c. estilização - OK
@@ -30,8 +35,12 @@
         2 - evento para receber dados dos inputs - OK
         3 - login na Api - OK
         4 - salvar token no localStorage - OK
-        5. verificando tipo de usuário -
+        5. verificando tipo de usuário - OK
 
-4 - Page User
+4 - mensagens de erro
+    a. validação de erro
+    b. mostrar mensagem de erro no modal
 
-5 - Page Admin
+5 - DashBord User
+
+6 - DashBord Admin
