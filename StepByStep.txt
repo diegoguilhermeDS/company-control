@@ -17,14 +17,19 @@
     fix MoblieFirst / CSS - OK
 
 2 - Register
-    a. estruturação - 
-    b. moblieFist
-    c. estilização
+    a. estruturação - OK
+    b. moblieFist - OK
+    c. estilização - OK
 
 3 - Login
-    a. estruturação -
-    b. moblieFist
-    c. estilização
+    a. estruturação - OK
+    b. moblieFist - OK
+    c. estilização - OK
+    d. funcionalidade
+        1 - evento para habilitar botão - OK
+        2 - evento para receber dados dos inputs - OK
+        3 - login na Api -
+        4 - salvar token no localStorage
 
 4 - Page User
 

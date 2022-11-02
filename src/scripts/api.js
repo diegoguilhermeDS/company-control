@@ -1,3 +1,5 @@
+import { tooltip } from "./tooltip.js"
+
 const baseUrl = "http://localhost:6278/"
 
 async function getAllSector() {
@@ -46,7 +48,33 @@ async function getAllCompanies(sector = '') {
 }
 
 
+async function login(body) {
+    try {
+        const request = await fetch(`${baseUrl}auth/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            console.log(response)
+            
+        } else {
+            console.log(response)
+        }
+        
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
 export {
     getAllSector,
-    getAllCompanies
+    getAllCompanies,
+    login
 }
