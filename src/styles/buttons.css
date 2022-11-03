@@ -62,6 +62,21 @@
     opacity: 40%;
 }
 
+.button-edit {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+.button-edit:hover {
+    opacity: 40%;
+}
+.button-edit > img {
+    width: 1.25rem;
+}
 
 .icon-search {
     animation: searchAnimate 4s linear infinite;
