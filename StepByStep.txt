@@ -42,11 +42,11 @@
     b. mostrar mensagem de erro no modal
 
 5 - DashBord User
-    a. estruturação
-    b. moblieFist
-    c. estilização
-        1. card colegas de trabalho 
-        2. modal
+    a. estruturação - 
+    b. moblieFist - 
+    c. estilização -
+        1. card colegas de trabalho - 
+        2. modal - 
     d. funcionalidade
         1. renderizar informações do usuário
         2. logout
