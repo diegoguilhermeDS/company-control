@@ -1,4 +1,4 @@
-import { createDepartment, login, pathInforUser, register } from "./api.js"
+import { createDepartment, deleteDepartment, editDepartment, login, pathInforUser, register } from "./api.js"
 import { setLocalStorage } from "./LocalStorage.js"
 import { createModalBase } from "./modal.js"
 
@@ -118,5 +118,25 @@ export function eventSubmitModalCreate(btn) {
         })
 
         createDepartment(body)
+    })
+}
+
+
+export function eventSubmitEditModal(btn, uuid) {
+    btn.addEventListener("click", () => {
+        const body = {}
+
+        const textDescription = document.querySelector(".textarea-edit")
+
+        body[textDescription.id] = textDescription.value
+        
+        editDepartment(body, uuid)
+    })
+}
+
+
+export function eventSubmitDeleteModal(btn, uuid) {
+    btn.addEventListener("click", () => {
+        deleteDepartment(uuid)
     })
 }

@@ -71,7 +71,7 @@
         b. mostrar modal - OK
     6 - criar cada funcionalidade para cada modal especifico 
         a. create - OK
-        b. edit - 
-        c. remove -
+        b. edit - OK
+        c. remove - 
 
 7 - arrumar estilos como cores e textos

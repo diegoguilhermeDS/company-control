@@ -4,7 +4,7 @@ import checked from "./userChecker.js"
 const baseUrl = "http://localhost:6278/"
 
 
-async function getAllSector() {
+export async function getAllSector() {
     try {
         const response = await fetch(`${baseUrl}sectors`, {
             method: "GET",
@@ -27,7 +27,7 @@ async function getAllSector() {
 }
 
 
-async function getAllCompanies(sector = '') {
+export async function getAllCompanies(sector = '') {
     try {
         const response = await fetch(`${baseUrl}companies/${sector}`, {
             method: "GET",
@@ -50,7 +50,7 @@ async function getAllCompanies(sector = '') {
 }
 
 
-async function checkUserTypeApi(token) {
+export async function checkUserTypeApi(token) {
     try {
         const request = await fetch(`${baseUrl}auth/validate_user`, {
             method: "GET", 
@@ -75,7 +75,7 @@ async function checkUserTypeApi(token) {
 }
 
 
-async function login(body, btn) {
+export async function login(body, btn) {
     try {
         const request = await fetch(`${baseUrl}auth/login`, {
             method: "POST",
@@ -107,7 +107,7 @@ async function login(body, btn) {
 }
 
 
-async function register(body, btn) {
+export async function register(body, btn) {
     try {
         const request = await fetch(`${baseUrl}auth/register`, {
             method: "POST",
@@ -141,7 +141,7 @@ async function register(body, btn) {
 }
 
 
-async function getInforUser() {
+export async function getInforUser() {
     try {
         let token = getLocalStorage("@loginUser: token")
         const request = await fetch(`${baseUrl}users/profile`, {
@@ -162,7 +162,7 @@ async function getInforUser() {
 }
 
 
-async function pathInforUser(body) {
+export async function pathInforUser(body) {
     try {
         let token = getLocalStorage("@loginUser: token")
 
@@ -190,7 +190,7 @@ async function pathInforUser(body) {
 }
 
 
-async function getAllDepartment(uuid = ''){
+export async function getAllDepartment(uuid = ''){
     try {
         const token = getLocalStorage("@loginUser: token")
         const response = await fetch(`${baseUrl}departments/${uuid}`, {
@@ -215,7 +215,7 @@ async function getAllDepartment(uuid = ''){
 }
 
 
-async function getAllUsers() {
+export async function getAllUsers() {
     try {
         const token = getLocalStorage("@loginUser: token")
         const request = await fetch(`${baseUrl}users`, {
@@ -236,7 +236,7 @@ async function getAllUsers() {
 }
 
 
-async function getDepartamentCompanyUser() {
+export async function getDepartamentCompanyUser() {
     try {
         let token = getLocalStorage("@loginUser: token")
         const request = await fetch(`${baseUrl}users/departments`, {
@@ -257,7 +257,7 @@ async function getDepartamentCompanyUser() {
 }
 
 
-async function getCoworkersDepartment(){
+export async function getCoworkersDepartment(){
     try {
         let token = getLocalStorage("@loginUser: token")
         const request = await fetch(`${baseUrl}users/departments/coworkers`, {
@@ -278,7 +278,7 @@ async function getCoworkersDepartment(){
 }
 
 
-async function createDepartment(body) {
+export async function createDepartment(body) {
     try {
         let token = getLocalStorage("@loginUser: token")
         const request =  await fetch(`${baseUrl}departments`, {
@@ -307,17 +307,56 @@ async function createDepartment(body) {
 }
 
 
-export {
-    getAllSector,
-    getAllCompanies,
-    login,
-    register,
-    checkUserTypeApi,
-    getInforUser,
-    pathInforUser,
-    getAllDepartment,
-    getAllUsers,
-    getDepartamentCompanyUser,
-    getCoworkersDepartment,
-    createDepartment
+export async function editDepartment(body, uuid) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}departments/${uuid}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }, 
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            const conatinerModal = document.querySelector(".container-modal")
+
+            conatinerModal.remove()
+            location.replace("/src/pages/DashBordAdmin/index.html")
+        }
+
+        return response
+
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
+export async function deleteDepartment(uuid) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}departments/${uuid}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        if (request.ok) {
+            const conatinerModal = document.querySelector(".container-modal")
+
+            conatinerModal.remove()
+            location.replace("/src/pages/DashBordAdmin/index.html")
+        }
+
+        return request
+
+    } catch (err) {
+        console.log(err)
+    }
 }

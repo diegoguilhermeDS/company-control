@@ -24,6 +24,18 @@
     animation: modalShow 1s ease;
 }
 
+.modal-delete {
+    width: 37.5rem;
+    padding: 4rem;
+    text-align: center;
+    gap: 3rem;
+}
+
+.modal-delete > .button-base {
+    width: 60%;
+    margin: 0 auto;
+}
+
 /* Style Modal Tooltip */
 .modal-communication {
     max-width: 27.5rem;

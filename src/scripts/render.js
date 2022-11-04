@@ -214,7 +214,10 @@ async function renderDepartmentAll(companySelected) {
     btnsControlModal.forEach((btn) => {
         btn.addEventListener("click", () => {
             let atribute = btn.getAttribute("data-modal-control")
-            createModalBase(atribute)
+
+            let uuid = btn.parentElement.parentElement.id
+
+            createModalBase(atribute, uuid)
         })
     })
 }
