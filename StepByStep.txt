@@ -65,6 +65,6 @@
         a. renderizar select - OK
         b. filtro do select - OK
         c. renderizar empresas - OK
-    4 - renderizar todos usuarios -
+    4 - renderizar todos usuarios - OK
 
 7 - arrumar estilos como cores e textos
