@@ -108,6 +108,7 @@
     margin-top: .75rem;
 }
 
+
 @media (min-width: 700px) {
     /* style header desktop */
     .container-header {
@@ -171,6 +172,7 @@
     .container-empty > h1 {
         font-size: var(--font-size-1);
     }
+
 }
 
 

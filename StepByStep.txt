@@ -47,6 +47,7 @@
     c. estilização - OK
         1. card colegas de trabalho - OK
         2. modal - OK
+
     d. funcionalidade
         1. renderizar informações do usuário
             a. pegar informações do usuário da Api - OK
