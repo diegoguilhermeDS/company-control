@@ -57,3 +57,7 @@
         3. editar informações - OK
 
 6 - DashBord Admin
+    1 - estruturação - OK
+    2 -estilização - 
+        a. MoblieFirst -
+        b. desktop -
