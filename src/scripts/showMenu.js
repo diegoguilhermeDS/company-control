@@ -24,7 +24,6 @@ function eventShowMenuCard(){
 
     btns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            console.log(btn.parentElement.children[1])
             btn.parentElement.children[1].classList.toggle("nav-show")
 
             if (btn.id == "show") {
