@@ -58,6 +58,12 @@
 
 6 - DashBord Admin
     1 - estruturação - OK
-    2 -estilização - 
-        a. MoblieFirst -
-        b. desktop -
+    2 - estilização - 
+        a. MoblieFirst - OK
+        b. desktop - OK
+    3 - renderizar todas as empresas
+        a. renderizar select
+        b. filtro do select
+        c. renderizar empresas
+
+7 - arrumar estilos como cores e textos

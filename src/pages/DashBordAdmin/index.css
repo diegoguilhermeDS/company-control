@@ -28,9 +28,66 @@
     display: flex;  
 }
 
+/* Style Main*/
+.container-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+    padding: 0 0.875rem;
+}
 
+.container-list-department {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+    position: relative;
+}
+
+#button-create {
+    position: absolute;
+    width: 40%;
+    right: 0;
+    top: 0;
+}
+
+.container-list-department > select {
+    margin-top: 1.25rem;
+}
+
+.list-department {
+    display: flex;
+    gap: var(--gap-1);
+    overflow-x: auto;
+    background-color: var(--color-grey-800);
+    padding: 1rem;
+}
+
+
+
+.container-user-registered {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+}
+
+.list-user-registered {
+    display: flex;
+    gap: var(--gap-1);
+    overflow-x: auto;
+    background-color: var(--color-grey-800);
+    padding: 1rem;
+}
 
 @media (min-width: 700px) {
+    ::-webkit-scrollbar {
+        overflow: hidden;
+        width: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-grey-400);
+        border-radius: var(--radius-1);
+    }
+
     /* style header desktop */
     .container-header {
         height: 5rem;
@@ -51,6 +108,51 @@
         display: flex;
         animation: none;
     }
+
+    /* Style Main desktop */
+    body {
+        padding-bottom: 50px;
+    }
+    .container-list-department {
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #select-company {
+        width: 30%;
+    }
+
+    #button-create {
+        position: static;
+        width: 10%;
+        text-align: center;
+        height: 40px;
+    }
+
+    .list-department {
+        margin-top: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 2.125rem 3.5rem;
+        gap: var(--gap-1);
+        max-height: 330px;
+        overflow-y: auto;
+    }
+
+    .list-user-registered {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--gap-1);
+        padding: 2.125rem 3.5rem;
+        max-height: 330px;
+        overflow-y: auto;
+    }
+
+    .user-registered {
+        width: 16rem;
+    }
 }
 
 
@@ -62,5 +164,17 @@
     100% {
         margin-top: 0;
         opacity: 1;
+    }
+}
+
+
+@keyframes showMenuCard {
+    0% {
+       opacity: 0;
+       margin-right: -12%;
+    }
+    100% {
+        opacity: 1;
+        margin-right: 0;
     }
 }
