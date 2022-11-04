@@ -62,7 +62,10 @@
     padding: 1rem;
 }
 
-
+.list-department-empty {
+    align-items: center;
+    justify-content: center;
+}
 
 .container-user-registered {
     display: flex;
@@ -76,6 +79,19 @@
     overflow-x: auto;
     background-color: var(--color-grey-800);
     padding: 1rem;
+}
+
+/* Style Select */
+select {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+}
+
+option {
+    background-color: var(--color-grey-800);
+    color: var(--color-brand-200);
+    cursor: pointer;
 }
 
 @media (min-width: 700px) {
@@ -137,8 +153,15 @@
         justify-content: space-between;
         padding: 2.125rem 3.5rem;
         gap: var(--gap-1);
-        max-height: 330px;
+        height: 20.625rem;
+        max-height: 100%;
+        width: 100%;
         overflow-y: auto;
+    }
+
+    .list-department-empty {
+        align-items: center;
+        justify-content: center;
     }
 
     .list-user-registered {
