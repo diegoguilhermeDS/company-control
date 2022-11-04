@@ -1,4 +1,4 @@
-import { getAllCompanies, getAllSector, getInforUser } from "./api.js"
+import { getAllCompanies, getAllDepartment, getAllSector, getInforUser } from "./api.js"
 
 async function renderSectorOption() {
     const select = document.getElementById("select-sector")
@@ -76,7 +76,84 @@ async function renderInforUser() {
     }
 }
 
+
+async function renderSelectCompany() {
+    const select = document.getElementById("select-company")
+    
+    const companies = await getAllCompanies()
+    companies.forEach((comp, index) => {
+        let opt = document.createElement("option")
+        opt.setAttribute("value", index + 1)
+        opt.id = comp.uuid
+        opt.innerText = comp.name
+
+        select.appendChild(opt)
+    })
+    
+    if (select.options[select.selectedIndex].text == "Selecionar Empresa") {
+        select.style.color = "var(--color-grey-400)";
+        renderDepartmentAll()
+    }
+
+    select.addEventListener("change", () => {
+        let companyTextCurrency = select.options[select.selectedIndex].text
+
+        if (companyTextCurrency == "Selecionar Empresa") {
+            select.style.color = "var(--color-grey-400)";
+            renderDepartmentAll()
+        } else {
+            select.style.color = "var(--color-grey-100)";
+            renderDepartmentAll(select.options[select.selectedIndex].id)
+        }
+    })
+}
+
+async function renderDepartmentAll(companySelected) {
+    const listDepartment = document.querySelector(".list-department")
+    listDepartment.innerHTML = ''
+
+    let departments = await getAllDepartment(companySelected)
+
+    if (departments == 0) {
+        let textNotFoundCompanies = document.createElement("h1")
+        textNotFoundCompanies.innerText = 'Nenhum Departamento cadastrado nesta Empresa.'
+        textNotFoundCompanies.style.textAlign = "center";
+        listDepartment.appendChild(textNotFoundCompanies)
+        listDepartment.classList.add("list-department-empty")
+
+    } else {
+        listDepartment.classList.remove("list-department-empty")
+        if (departments.length <= 3) {
+            listDepartment.style.alignItems = "center";
+        }
+        departments.forEach((depar) => {
+            const { uuid, name, description, companies } = depar
+    
+            let department = document.createElement("li")
+            department.classList.add("department")
+            department.id = uuid
+    
+            department.innerHTML = `
+                <div class="infor-department">
+                    <h3>${name}</h3>
+                    <span>${description}</span>
+                    <span>${companies.name}</span>
+                </div>
+                <nav class="nav-btns">
+                    <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                    <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                    <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                </nav>
+                <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+            `
+            listDepartment.appendChild(department)
+        })
+    } 
+}
+
+
 export {
     renderSectorOption,
-    renderInforUser
+    renderInforUser,
+    renderSelectCompany
 }

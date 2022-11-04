@@ -61,9 +61,10 @@
     2 - estilização - 
         a. MoblieFirst - OK
         b. desktop - OK
-    3 - renderizar todas as empresas
-        a. renderizar select
-        b. filtro do select
-        c. renderizar empresas
+    3 - renderizar todas as empresas - OK
+        a. renderizar select - OK
+        b. filtro do select - OK
+        c. renderizar empresas - OK
+    4 - renderizar todos usuarios -
 
 7 - arrumar estilos como cores e textos

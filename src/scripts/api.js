@@ -190,6 +190,31 @@ async function pathInforUser(body) {
 }
 
 
+async function getAllDepartment(uuid = ''){
+    try {
+        const token = getLocalStorage("@loginUser: token")
+        const response = await fetch(`${baseUrl}departments/${uuid}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const request = await response.json()
+        if (response.ok) {
+            return request
+    
+        } else {
+            alert("algo deu errado com a requisição")
+        }
+
+    } catch (err) {
+        alert("algo deu errado")
+    }
+}
+
+
 export {
     getAllSector,
     getAllCompanies,
@@ -197,5 +222,6 @@ export {
     register,
     checkUserTypeApi,
     getInforUser,
-    pathInforUser
+    pathInforUser,
+    getAllDepartment
 }
