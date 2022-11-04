@@ -7,7 +7,7 @@
     padding: 1rem 0.5rem;
     position: relative;
     padding-right: 1.875rem;
-    width: 16rem;
+    width: 17rem;
     background-color: var(--color-grey-900);
     height: 8rem;
 }
@@ -25,7 +25,7 @@
     display: none;
     flex-direction: column;
     gap: 0.85rem;
-    animation: showMenuCard 1s ease;
+    animation: showMenuCard 0.7s;
 }
 
 /* Style card user registered */

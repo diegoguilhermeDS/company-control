@@ -94,6 +94,16 @@ option {
     cursor: pointer;
 }
 
+.form-create-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#company_uuid {
+    width: 100%;
+}
+
 @media (min-width: 700px) {
     ::-webkit-scrollbar {
         overflow: hidden;
@@ -150,7 +160,6 @@ option {
     .list-department {
         margin-top: 1.25rem;
         flex-wrap: wrap;
-        justify-content: space-between;
         padding: 2.125rem 3.5rem;
         gap: var(--gap-1);
         height: 20.625rem;

@@ -1,4 +1,7 @@
 import { getAllCompanies, getAllDepartment, getAllSector, getAllUsers, getCoworkersDepartment, getDepartamentCompanyUser, getInforUser } from "./api.js"
+import { createModalBase } from "./modal.js"
+import { eventShowMenuCard } from "./showMenu.js"
+
 
 async function renderSectorOption() {
     const select = document.getElementById("select-sector")
@@ -192,15 +195,28 @@ async function renderDepartmentAll(companySelected) {
                     <span>${companies.name}</span>
                 </div>
                 <nav class="nav-btns">
-                    <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
-                    <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <button class="btn-base-menu" data-modal-control="visibility"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                    <button class="btn-base-menu" data-modal-control="edit-admin"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                    <button class="btn-base-menu" data-modal-control="delete"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
                 </nav>
-                <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+                <button class="button-menu-department" id="show" data-menu-control="menu"><img src="/src/assets/img/Vector.png" alt=""></button>
             `
             listDepartment.appendChild(department)
         })
     } 
+
+    await renderAllUsers()
+
+    eventShowMenuCard()
+
+    const btnsControlModal = document.querySelectorAll("[data-modal-control]")
+
+    btnsControlModal.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            let atribute = btn.getAttribute("data-modal-control")
+            createModalBase(atribute)
+        })
+    })
 }
 
 
@@ -209,7 +225,7 @@ async function renderAllUsers() {
     listUsersRegistered.innerHTML = ''
 
     const listAllUserApi = await getAllUsers()
-    listAllUserApi.forEach(async (user) => {
+    let list = listAllUserApi.forEach(async (user) => {
         if (user.username !== "ADMIN") {
             const { uuid, username, professional_level, department_uuid
             } = user
@@ -240,11 +256,12 @@ async function renderAllUsers() {
                 <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
                 <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
             </nav>
-            <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+            <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt="icone menu" class="btn-menu-img"></button>
             `
-    
+
+            
             listUsersRegistered.appendChild(userRegistered)
-        } 
+        }  
     })
 }
 
@@ -253,6 +270,5 @@ export {
     renderSectorOption,
     renderInforUser,
     renderSelectCompany,
-    renderAllUsers,
     renderCompanyUser
 }
