@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/src/styles/buttons.css">
     <link rel="stylesheet" href="/src/styles/modal.css">
     <link rel="stylesheet" href="/src/styles/inputs.css">
+    <link rel="stylesheet" href="/src/styles/cards.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -25,106 +26,230 @@
     </header>
     <main class="container container-main">
         <section class="container-list-department">
-            <h1>Departamentos</h1>
-            <select name="select-company" id="select-company">
+            <h1 class="font-3-semibold">Departamentos</h1>
+            <select name="select-company" id="select-company" class="font-5-semibold">
                 <option value="0">Selecionar Empresa</option>
             </select>
-            <button>+ Criar</button>
+            <button class="button-base button-brand-1" id="button-create">+ Criar</button>
             <ul class="list-department">
-                <li class="departament">
-                    <h3>Department Name</h3>
-                    <span>Department Description</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (5).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icon"></button>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
-                <li class="departament">
-                    <h3>Department Name</h3>
-                    <span>Department Description</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (5).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icon"></button>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
-                <li class="departament">
-                    <h3>Department Name</h3>
-                    <span>Department Description</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (5).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icon"></button>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
-                <li class="departament">
-                    <h3>Department Name</h3>
-                    <span>Department Description</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (5).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icon"></button>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
-                <li class="departament">
-                    <h3>Department Name</h3>
-                    <span>Department Description</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (5).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icon"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icon"></button>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
-                <li class="departament">
-                    <h3>Department Name</h3>
-                    <span>Department Description</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+                </li>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+                </li>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+                </li>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+                </li>
+                <li class="department">
+                    <div class="infor-department">
+                        <h3>Department Name</h3>
+                        <span>Department Description</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (5).png" alt="icone visualizar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
             </ul>
         </section>
         <section class="container-user-registered">
-            <h1>Usuários cadastrados</h1>
+            <h1 class="font-3-semibold">Usuários cadastrados</h1>
             <ul class="list-user-registered">
                 <li class="user-registered">
-                    <h3>Username</h3>
-                    <span>Pleno</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
                 <li class="user-registered">
-                    <h3>Username</h3>
-                    <span>Pleno</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
                 <li class="user-registered">
-                    <h3>Username</h3>
-                    <span>Pleno</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
                 <li class="user-registered">
-                    <h3>Username</h3>
-                    <span>Pleno</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
                 <li class="user-registered">
-                    <h3>Username</h3>
-                    <span>Pleno</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
                 <li class="user-registered">
-                    <h3>Username</h3>
-                    <span>Pleno</span>
-                    <span>Company Name</span>
-                    <button><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+                </li>
+                <li class="user-registered">
+                    <div class="infor-user-registered">
+                        <h3>Username</h3>
+                        <span>Pleno</span>
+                        <span>Company Name</span>
+                    </div>
+                    <nav class="nav-btns">
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                        <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+                    </nav>
+                    <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
                 </li>
             </ul>
         </section>

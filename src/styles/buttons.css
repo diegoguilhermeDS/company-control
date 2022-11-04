@@ -67,6 +67,30 @@
     animation: searchAnimate 4s linear infinite;
 }
 
+/* Style btn menu card */
+.button-menu-department {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    position: absolute;
+    right: 0.5rem;
+    top: 1.25rem;
+}
+.button-menu-department > img {
+    width: 1.25rem;
+}
+
+.btn-base-menu {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-base-menu > img {
+    width: 1.25rem;
+}
 
 /* Style btn edit */
 .button-edit {
