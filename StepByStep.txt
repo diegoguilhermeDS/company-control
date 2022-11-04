@@ -41,7 +41,7 @@
     a. validação de erro
     b. mostrar mensagem de erro no modal - OK
 
-5 - DashBord User QUASE
+5 - DashBord User FEITO
     a. estruturação - OK
     b. moblieFist - OK
     c. estilização - OK
@@ -52,7 +52,7 @@
         1. renderizar informações do usuário
             a. pegar informações do usuário da Api - OK
             b. renderizar as informações do usuário - OK
-            c. renderizar as informações da empresa do usuário caso tenha 
+            c. renderizar as informações da empresa do usuário caso tenha - OK
         2. logout - OK
         3. editar informações - OK
 
@@ -66,5 +66,12 @@
         b. filtro do select - OK
         c. renderizar empresas - OK
     4 - renderizar todos usuarios - OK
+    5 - exibir modal atraves do data setAttribute
+        a. buttonMenuCard - OK
+        b. mostrar modal - OK
+    6 - criar cada funcionalidade para cada modal especifico 
+        a. create - OK
+        b. edit - 
+        c. remove -
 
 7 - arrumar estilos como cores e textos

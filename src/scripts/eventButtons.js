@@ -1,4 +1,4 @@
-import { login, pathInforUser, register } from "./api.js"
+import { createDepartment, login, pathInforUser, register } from "./api.js"
 import { setLocalStorage } from "./LocalStorage.js"
 import { createModalBase } from "./modal.js"
 
@@ -89,5 +89,34 @@ export function eventCloseModal() {
         const containerModal = document.querySelector(".container-modal")
 
         containerModal.remove()
+    })
+}
+
+
+export function eventSubmitModalCreate(btn) {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault()
+
+        const form = document.querySelector(".form-create-modal")
+        const elements = [...form.elements]
+
+        const body = {}
+
+        elements.forEach((tag) => {
+            if (tag.tagName == "INPUT" && tag.value !== "") {
+                body[tag.id] = tag.value
+            } else if (tag.tagName == "SELECT" && tag.value !== '0') {
+                body[tag.id] = elements[2].options[elements[2].selectedIndex].id
+            }
+
+            if (tag.tagName == "INPUT") {
+                tag.value = ''
+            } else {
+                tag.value = '0'
+                tag.classList.add("select-selected")
+            }
+        })
+
+        createDepartment(body)
     })
 }

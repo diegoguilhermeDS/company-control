@@ -278,6 +278,35 @@ async function getCoworkersDepartment(){
 }
 
 
+async function createDepartment(body) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}departments`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }, 
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            const conatinerModal = document.querySelector(".container-modal")
+
+            conatinerModal.remove()
+            location.replace("/src/pages/DashBordAdmin/index.html")
+        }
+
+        return response
+
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
 export {
     getAllSector,
     getAllCompanies,
@@ -289,5 +318,6 @@ export {
     getAllDepartment,
     getAllUsers,
     getDepartamentCompanyUser,
-    getCoworkersDepartment
+    getCoworkersDepartment,
+    createDepartment
 }

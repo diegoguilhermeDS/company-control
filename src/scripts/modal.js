@@ -1,6 +1,7 @@
-import { eventCloseModal } from "./eventButtons.js"
+import { eventCloseModal, eventSubmitModalCreate } from "./eventButtons.js"
+import { eventSelectModal } from "./eventSelect.js"
 
-export function createModalBase(type) {
+export async function createModalBase(type) {
     const body = document.querySelector("body")
 
     const containerModal = document.createElement("div")
@@ -20,9 +21,36 @@ export function createModalBase(type) {
                 <button type="submit" class="button-base button-brand-1" >Editar perfil</button>
             </form>
         `
+    } else if (type == 'create') {
+        let btnCreate = document.createElement("button")
+        btnCreate.classList.add("button-base", "button-brand-1")
+        btnCreate.innerText = "Criar o departamento"
+
+        let select = document.createElement("select")
+        select.classList.add("font-5-semibold")
+        select.id = "company_uuid"
+        select.setAttribute("name", "select-modal")
+        select.innerHTML = `
+            <option value="0">Selecionar Empresa</option>
+        `
+
+        modal.innerHTML = `
+            <button class="button-close"><img src="/src/assets/img/Vector (4).png" alt="icon close"></button>
+            <h2 class="font-2-bold">Editar Perfil</h2>
+            <form class="form-create-modal">
+                <input class="input-base" type="text" name="name" id="name" placeholder="Nome do departamento">
+                <input class="input-base" type="text" name="email" id="description" placeholder="Descrição">
+            </form>
+        `
+
+        
+        modal.children[2].append(select, btnCreate)
+
+        eventSelectModal(select)
+        eventSubmitModalCreate(btnCreate)      
     }
-
-
+    
+    
     containerModal.append(modal)
     body.appendChild(containerModal)
 
