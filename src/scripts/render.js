@@ -1,4 +1,4 @@
-import { getAllCompanies, getAllDepartment, getAllSector, getInforUser } from "./api.js"
+import { getAllCompanies, getAllDepartment, getAllSector, getAllUsers, getInforUser } from "./api.js"
 
 async function renderSectorOption() {
     const select = document.getElementById("select-sector")
@@ -152,8 +152,54 @@ async function renderDepartmentAll(companySelected) {
 }
 
 
+async function renderAllUsers() {
+    const listUsersRegistered = document.querySelector(".list-user-registered")
+    listUsersRegistered.innerHTML = ''
+
+    const listAllUserApi = await getAllUsers()
+    listAllUserApi.forEach(async (user) => {
+        if (user.username !== "ADMIN") {
+            const { uuid, username, professional_level, department_uuid
+            } = user
+    
+            let prof = professional_level == null ? "Ainda não definido" : professional_level
+
+            let allDepartment = await getAllDepartment()
+            let department = department_uuid == null ? "Ainda não contratado" : allDepartment.find((dep) => {
+                if(dep.uuid == department_uuid) {
+                    return dep.companies
+                }
+            })
+
+            let depName = department.companies !== undefined ? department.companies.name : department
+
+
+            const userRegistered = document.createElement("li")
+            userRegistered.classList.add("user-registered")
+            userRegistered.id = uuid
+    
+            userRegistered.innerHTML = `
+            <div class="infor-user-registered">
+                <h3>${username}</h3>
+                <span>${prof}</span>
+                <span>${depName}</span>
+            </div>
+            <nav class="nav-btns">
+                <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
+                <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
+            </nav>
+            <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt=""></button>
+            `
+    
+            listUsersRegistered.appendChild(userRegistered)
+        } 
+    })
+}
+
+
 export {
     renderSectorOption,
     renderInforUser,
-    renderSelectCompany
+    renderSelectCompany,
+    renderAllUsers
 }

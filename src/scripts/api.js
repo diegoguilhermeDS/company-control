@@ -215,6 +215,27 @@ async function getAllDepartment(uuid = ''){
 }
 
 
+async function getAllUsers() {
+    try {
+        const token = getLocalStorage("@loginUser: token")
+        const request = await fetch(`${baseUrl}users`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const response = await request.json()
+
+        return response
+
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
 export {
     getAllSector,
     getAllCompanies,
@@ -223,5 +244,6 @@ export {
     checkUserTypeApi,
     getInforUser,
     pathInforUser,
-    getAllDepartment
+    getAllDepartment,
+    getAllUsers
 }
