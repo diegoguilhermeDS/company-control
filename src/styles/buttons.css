@@ -67,6 +67,34 @@
     animation: searchAnimate 4s linear infinite;
 }
 
+
+/* Style btn edit */
+.button-edit {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+.button-edit > img {
+    width: 1.25rem;
+}
+
+.button-close {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+.button-close > img {
+    width: 1.125rem;
+}
+
+
 @keyframes searchAnimate {
     0% {
         transform: rotate(0deg);

@@ -37,19 +37,23 @@
         4 - salvar token no localStorage - OK
         5. verificando tipo de usuário - OK
 
-4 - mensagens de erro
+4 - mensagens de erro QUASE
     a. validação de erro
-    b. mostrar mensagem de erro no modal
+    b. mostrar mensagem de erro no modal - OK
 
-5 - DashBord User
-    a. estruturação - 
-    b. moblieFist - 
-    c. estilização -
-        1. card colegas de trabalho - 
-        2. modal - 
+5 - DashBord User QUASE
+    a. estruturação - OK
+    b. moblieFist - OK
+    c. estilização - OK
+        1. card colegas de trabalho - OK
+        2. modal - OK
+
     d. funcionalidade
         1. renderizar informações do usuário
-        2. logout
-        3. editar informações
+            a. pegar informações do usuário da Api - OK
+            b. renderizar as informações do usuário - OK
+            c. renderizar as informações da empresa do usuário caso tenha 
+        2. logout - OK
+        3. editar informações - OK
 
 6 - DashBord Admin

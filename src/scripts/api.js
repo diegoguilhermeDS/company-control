@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./LocalStorage.js"
+import { getLocalStorage, setLocalStorage } from "./LocalStorage.js"
 import checked from "./userChecker.js"
 
 const baseUrl = "http://localhost:6278/"
@@ -141,10 +141,61 @@ async function register(body, btn) {
 }
 
 
+async function getInforUser() {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request = await fetch(`${baseUrl}users/profile`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}` 
+            }
+        })   
+
+        const response = await request.json()
+
+        return response
+        
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
+async function pathInforUser(body) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+
+        const request = await fetch(`${baseUrl}users`, {
+            method: "PATCH", 
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+        console.log(response)
+        if (request.ok) {
+            location.replace("/src/pages/DashBordUser/index.html")
+            return response
+        } else {
+            return response
+        }
+
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
 export {
     getAllSector,
     getAllCompanies,
     login,
     register,
     checkUserTypeApi,
+    getInforUser,
+    pathInforUser
 }

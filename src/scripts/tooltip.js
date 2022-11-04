@@ -7,14 +7,14 @@ const tooltip = (status, title, message='', link='') => {
     containerMessage.classList.add("container-message")
 
     const text = document.createElement("span")
-    /* text.classList.add("text-2") */
+    text.classList.add("font-5-regular")
 
     if (status == "Sucesso!") {
         containerMessage.innerHTML = `
         <div class="circle circle-sucess">
-            <img src="/assets/img/check.png" alt="Mensagem de ${status}">
+            <img src="/src/assets/img/check.png" alt="Mensagem de ${status}">
         </div>
-        <h3 class="">${title}</h3>
+        <h3 class="font-4-semibold">${title}</h3>
         `
         modalInforByUser.append(containerMessage)
 
@@ -32,12 +32,12 @@ const tooltip = (status, title, message='', link='') => {
             modalInforByUser.append(text)
         }
         
-    } /* else if (status == "Erro!") {
+    } else if (status == "Erro!") {
         containerMessage.innerHTML = `
         <div class="circle circle-fail">
-            <img src="/assets/img/gross-dark-cross.png" alt="Mensagem de ${status}">
+            <img src="/src/assets/img/gross-dark-cross.png" alt="Mensagem de ${status}">
         </div>
-        <h3 class="">${title}</h3>
+        <h3 class="font-4-semibold">${title}</h3>
         `
         
         modalInforByUser.append(containerMessage)
@@ -50,7 +50,7 @@ const tooltip = (status, title, message='', link='') => {
             modalInforByUser.append(text)
         }
     }
- */
+
     
     body.appendChild(modalInforByUser)
 
