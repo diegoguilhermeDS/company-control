@@ -236,6 +236,48 @@ async function getAllUsers() {
 }
 
 
+async function getDepartamentCompanyUser() {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request = await fetch(`${baseUrl}users/departments`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const response = await request.json()
+
+        return response
+
+    } catch (err){
+        alert(err)
+    }
+}
+
+
+async function getCoworkersDepartment(){
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request = await fetch(`${baseUrl}users/departments/coworkers`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const response = await request.json()
+
+        return response
+
+    } catch (err){
+        alert(err)
+    }
+}
+
+
 export {
     getAllSector,
     getAllCompanies,
@@ -245,5 +287,7 @@ export {
     getInforUser,
     pathInforUser,
     getAllDepartment,
-    getAllUsers
+    getAllUsers,
+    getDepartamentCompanyUser,
+    getCoworkersDepartment
 }

@@ -1,4 +1,4 @@
-import { getAllCompanies, getAllDepartment, getAllSector, getAllUsers, getInforUser } from "./api.js"
+import { getAllCompanies, getAllDepartment, getAllSector, getAllUsers, getCoworkersDepartment, getDepartamentCompanyUser, getInforUser } from "./api.js"
 
 async function renderSectorOption() {
     const select = document.getElementById("select-sector")
@@ -73,6 +73,58 @@ async function renderInforUser() {
     if (user.professional_level !== null) {
         let list = document.querySelector(".list-infor")
         list.insertAdjacentHTML("beforeend", `<li class="font-4-regular">${user.professional_level}</li>`)
+    }
+}
+
+
+async function renderCompanyUser() {
+    const containterJob = document.getElementById("container-job")
+
+    let user = await getInforUser()
+    
+    if (user.department_uuid !== null) {
+        let company = await getDepartamentCompanyUser()
+        let coworkers = await getCoworkersDepartment()
+        
+        let listCoWorkersApi = coworkers[0].users
+         
+        containterJob.classList.add("container-job-infor")
+
+        let titleSection = document.createElement("h1")
+        titleSection.classList.add("font-4-semibold")
+        titleSection.innerText = `${company.name} - ${coworkers[0].name}`
+
+        let listCoWorkers = document.createElement("ul")
+        listCoWorkers.classList.add("list-co-workers")
+
+        containterJob.append(titleSection, listCoWorkers)
+
+        listCoWorkersApi.forEach((co) => {
+            if (co.username !== user.username) {
+                let coWorkersTag = document.createElement("li")
+                coWorkersTag.classList.add("co-workers")
+                
+                coWorkersTag.innerHTML = `
+                    <h3>${co.username}</h3>
+                    <span>${co.professional_level == null ? "Ainda não definido" : co.professional_level}</span>
+                `
+
+                listCoWorkers.appendChild(coWorkersTag)
+            }
+        })
+
+        if (listCoWorkersApi.length <= 1) {
+            let h1 = document.createElement("h1")
+            h1.innerText = "Essa empresa possui apenas você como funcionário"
+
+            listCoWorkers.appendChild(h1)
+            listCoWorkers.style.alignItems = "center"
+            listCoWorkers.style.justifyContent = "center"
+        }
+    } else {
+        containterJob.classList.add("container-empty")
+
+        containterJob.insertAdjacentHTML("afterbegin", '<h1 class="font-3-semibold">Você ainda não foi contratado</h1>')
     }
 }
 
@@ -201,5 +253,6 @@ export {
     renderSectorOption,
     renderInforUser,
     renderSelectCompany,
-    renderAllUsers
+    renderAllUsers,
+    renderCompanyUser
 }
