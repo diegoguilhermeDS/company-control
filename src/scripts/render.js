@@ -1,4 +1,4 @@
-import { getAllCompanies, getAllSector } from "./api.js"
+import { getAllCompanies, getAllSector, getInforUser } from "./api.js"
 
 async function renderSectorOption() {
     const select = document.getElementById("select-sector")
@@ -53,6 +53,30 @@ async function renderCompaniesHomePage(sector = '') {
 }
 
 
+async function renderInforUser() {
+    const user = await getInforUser()
+
+    let containerInforUser = document.querySelector(".container-user-infor")
+
+    containerInforUser.insertAdjacentHTML("beforeend", `
+        <h2 class="font-3-semibold">${user.username}</h2>
+        <ul class="list-infor">
+            <li class="font-4-regular">Email: ${user.email}</li>
+        </ul>
+    `)
+
+    if (user.kind_of_work !== null) {
+        let list = document.querySelector(".list-infor")
+        list.insertAdjacentHTML("beforeend", `<li class="font-4-regular">${user.kind_of_work}</li>`)
+    } 
+
+    if (user.professional_level !== null) {
+        let list = document.querySelector(".list-infor")
+        list.insertAdjacentHTML("beforeend", `<li class="font-4-regular">${user.professional_level}</li>`)
+    }
+}
+
 export {
     renderSectorOption,
+    renderInforUser
 }

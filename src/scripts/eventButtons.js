@@ -1,4 +1,6 @@
-import { login, register } from "./api.js"
+import { login, pathInforUser, register } from "./api.js"
+import { setLocalStorage } from "./LocalStorage.js"
+import { createModalBase } from "./modal.js"
 
 export function eventButtonDesabled(type) {
     const form = document.querySelector("form")
@@ -16,7 +18,7 @@ export function eventButtonDesabled(type) {
                     if (elements[0].value !== "" && elements[1].value !== '' && elements[2].value !== '') {
                         button.disabled = false
                     }
-                }
+                } 
             })
         }
     })
@@ -54,6 +56,38 @@ function eventSubmit(form, elements, type) {
             await login(body, btn)
         } else if (type == 'register') {
             await register(body, btn)
+        } else if (type == 'edit') {
+            pathInforUser(body)
         }
+    })
+}
+
+
+export function eventLogout() {
+    const btnLogout = document.querySelector("#btn-logout")
+
+    btnLogout.addEventListener("click", () => {
+        setLocalStorage("@loginUser: token", [])
+
+        location.replace("/src/pages/home/index.html")
+    })
+}
+
+export function eventEdit() {
+    const btnEdit = document.querySelector(".button-edit")
+
+    btnEdit.addEventListener("click", () => {
+        createModalBase("edit")
+        eventButtonDesabled("edit")
+    })
+}
+
+export function eventCloseModal() {
+    const btnClose = document.querySelector(".button-close")
+
+    btnClose.addEventListener("click", () => {
+        const containerModal = document.querySelector(".container-modal")
+
+        containerModal.remove()
     })
 }
