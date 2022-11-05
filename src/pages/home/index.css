@@ -1,0 +1,179 @@
+/* Style Header */
+.container-header {
+    box-shadow: 0px 5px 10px -11px black;
+    margin-bottom: 1.375rem;
+    width: 100%;
+    height: 100%;
+}
+
+.container-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    height: 100%;
+    padding: 0.875rem;
+}
+
+.nav-header {
+    display: none;
+    justify-content: space-between;
+    gap: var(--gap-6);
+    width: 100%;
+    animation: 0.7s showMenu ease;
+}
+
+.nav-show {
+    display: flex;  
+}
+
+
+/* Style Main */
+.container-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.875rem;
+}
+
+.section-banner {
+    display: none;
+}
+
+.section-list-companies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-grey-700);
+    border-radius: var(--radius-2);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1), 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    width: 20.625rem;
+    min-width: 18rem;
+    height: 20.625rem;
+    margin: 0 auto;
+}
+
+.list-companies {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-3);
+    height: 82%;
+    padding: 0 1.25rem;
+    background-color: var(--color-grey-800);
+    overflow: auto;
+}
+
+.company {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--gap-6);
+    width: 100%;
+    height: 13.125rem;
+    padding: 1rem 1.5rem;
+    margin-top: 10px;
+    background-color: var(--color-grey-700);
+    border-bottom: 1px solid var(--color-brand-200);
+}
+
+.company > h3 {
+    width: 13rem;
+}
+
+.company > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Style Select */
+select {
+    text-align: center;
+    background-color: var(--color-brand-200);
+    border: 1px solid var(--color-brand-200);
+    border-radius: var(--radius-3) var(--radius-3) 0 0 ;
+    color: var(--color-grey-800);
+    height: 60px;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    outline: none;
+}
+
+option {
+    font-size: var(--font-size-3);
+    font-weight: 400;
+    background-color: var(--color-grey-800);
+    color: var(--color-brand-200);
+    cursor: pointer;
+}
+
+
+@media (min-width: 700px) {
+    /* style header desktop */
+    .container-header {
+        height: 5rem;
+        margin-bottom: 2.75rem;
+    }
+
+    .button-menu-icon {
+        display: none;
+    }
+
+    .container-content-header {
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+
+    .nav-header {
+        width: 24%;
+        display: flex;
+        animation: none;
+    }
+
+
+    /* style main desktop */
+    .container-main {
+        padding: 0 0 2rem 0;
+    }
+
+    .section-banner {
+        display: flex;
+    }
+
+    .section-list-companies {
+        width: 34.375rem;
+        height: 46.25rem;
+        margin: 0;
+    }
+
+    .list-companies {
+        flex-direction: column;
+        padding: 1.5rem;
+        height: 100%;
+    }
+    .list-companies::-webkit-scrollbar {
+        overflow: hidden;
+        width: 0.75rem;
+    }
+    .list-companies::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-brand-200);
+        border-radius: var(--radius-1);
+    }
+
+    .sector-btn {
+        max-width: 35%;
+    }
+}
+
+
+@keyframes showMenu {
+    0%{
+        margin-top: -20%;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}

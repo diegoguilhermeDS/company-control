@@ -1,0 +1,110 @@
+/* Style base modal */
+.container-modal {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--opacity);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.modal {
+    width: 25rem;
+    background-color: var(--color-grey-700);
+    border-radius: var(--radius-3);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+    position: relative;
+    animation: modalShow 1s ease;
+}
+
+.modal-delete {
+    width: 37.5rem;
+    padding: 4rem;
+    text-align: center;
+    gap: 3rem;
+}
+
+.modal-delete > .button-base {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* Style Modal Tooltip */
+.modal-communication {
+    max-width: 27.5rem;
+    max-height: 7.813rem;
+    background-color: var(--color-grey-700);
+    border-radius: var(--radius-3);
+    box-shadow: 0px 4px 30px -12px rgba(0, 0, 0, 0.2);
+    padding: 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: absolute;
+    bottom: 40px;
+    right: -100%;
+    z-index: 100;
+    animation: showModalInfor 6000ms ease-in-out forwards;
+}
+
+.container-message {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.msg {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-sucess {
+    background-color: var(--color-feedback-sucess);
+}
+
+.circle-fail {
+    background-color: var(--color-feedback-alert);
+    text-align: start;
+}
+
+
+@keyframes showModalInfor {
+    0%{
+        right: -100%;
+    }
+    25% {
+        right: 10px;
+    }
+    50%{
+        right: 10px;
+    }
+    100%{
+        right: -100%;
+    }
+}
+
+@keyframes modalShow {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}

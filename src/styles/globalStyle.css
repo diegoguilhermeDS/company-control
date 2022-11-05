@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --color-brand-100: #0e1f40;
+    --color-brand-200: #274e9c;
+    --color-brand-300: #ff3e9d;
+    --color-brand-400: #ff0078;
+    --color-grey-000: #15171a;
+    --color-grey-100: #212529;
+    --color-grey-200: #2b2f33;
+    --color-grey-300: #868e96;
+    --color-grey-400: #adb5bd;
+    --color-grey-500: #ced4da;
+    --color-grey-600: #dee2e6;
+    --color-grey-700: #f1f3f5;
+    --color-grey-800: #f8f9fa;
+    --color-grey-900: #fdfeff;
+    --opacity: #1f1f1f80;
+    --color-feedback-alert: #c92a2a;
+    --color-feedback-sucess: #087f5b;
+    --color-feedback-warning: #f08c00;
+    --color-feedback-disable: #c6c7cd;
+
+    --font-size-1: 2rem;
+    --font-size-2: 1.75rem;
+    --font-size-3: 1.25rem;
+    --font-size-4: 1rem;
+    --font-size-5: 0.875rem;
+
+    --radius-1: 0.75rem;
+    --radius-2: 0.5rem;
+    --radius-3: 0.25rem;
+    --radius-50: 50%;
+
+    --gap-1: 1.75rem;
+    --gap-2: 1.5rem;
+    --gap-3: 1.25rem;
+    --gap-4: 1rem;
+    --gap-5: 0.875rem;
+    --gap-6: 0.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Inter", sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1150px;
+}

@@ -1,0 +1,79 @@
+1 - Home Page FEITO
+    a. estruturação - OK
+    b. estilização - OK
+        1. botão - OK
+        2. textos - OK
+        3. select - OK
+
+    c. moblieFist - OK
+        1. ajuste a tela - OK
+        2. animação botão - OK
+
+    d. lógica - OK
+        1. Consumir da Api as empresasa cadastradas - OK
+        2. filtro por setor - OK
+        3. evento nos botão de login e registro - OK
+
+    fix MoblieFirst / CSS - OK
+
+2 - Register FEITO
+    a. estruturação - OK
+    b. moblieFist - OK
+    c. estilização - OK
+    d. funcionalidade
+        1 - evento para habilitar botão - OK
+        2 - evento para receber dados dos inputs - OK
+        3 - registro na Api - OK
+        4 - redirecionar para login - OK
+
+3 - Login - FEITO
+    a. estruturação - OK
+    b. moblieFist - OK
+    c. estilização - OK
+    d. funcionalidade
+        1 - evento para habilitar botão - OK
+        2 - evento para receber dados dos inputs - OK
+        3 - login na Api - OK
+        4 - salvar token no localStorage - OK
+        5. verificando tipo de usuário - OK
+
+4 - mensagens de erro QUASE
+    a. validação de erro
+    b. mostrar mensagem de erro no modal - OK
+
+5 - DashBord User FEITO
+    a. estruturação - OK
+    b. moblieFist - OK
+    c. estilização - OK
+        1. card colegas de trabalho - OK
+        2. modal - OK
+
+    d. funcionalidade
+        1. renderizar informações do usuário
+            a. pegar informações do usuário da Api - OK
+            b. renderizar as informações do usuário - OK
+            c. renderizar as informações da empresa do usuário caso tenha - OK
+        2. logout - OK
+        3. editar informações - OK
+
+6 - DashBord Admin
+    1 - estruturação - OK
+    2 - estilização - 
+        a. MoblieFirst - OK
+        b. desktop - OK
+    3 - renderizar todas as empresas - OK
+        a. renderizar select - OK
+        b. filtro do select - OK
+        c. renderizar empresas - OK
+    4 - renderizar todos usuarios - OK
+    5 - exibir modal atraves do data setAttribute
+        a. buttonMenuCard - OK
+        b. mostrar modal - OK
+    6 - criar cada funcionalidade para cada modal especifico - OK
+        a. create - OK
+        b. edit - OK
+        c. remove - OK
+        d. editUser - OK
+        e. deleteUser - OK
+
+7 - arrumar estilos como cores e textos
