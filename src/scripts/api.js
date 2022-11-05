@@ -1,5 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "./LocalStorage.js"
 import checked from "./userChecker.js"
+import { tooltip } from "./tooltip.js"
+
 
 const baseUrl = "http://localhost:6278/"
 
@@ -22,7 +24,7 @@ export async function getAllSector() {
         }
 
     } catch (err) {
-        alert("algo deu errado")
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -45,7 +47,7 @@ export async function getAllCompanies(sector = '') {
         }
 
     } catch (err) {
-        alert("algo deu errado")
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -66,11 +68,11 @@ export async function checkUserTypeApi(token) {
             return response
 
         }else {
-            console.log(await request.json())
+            tooltip("Erro!", "Algo deu errado")
         }
 
     } catch (err) {
-        console.log(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -93,16 +95,29 @@ export async function login(body, btn) {
         }, 1000)
 
         if (request.ok) {
+            tooltip("Sucesso!", "Login Efetuado com sucesso!", "Aguarde enquanto estamos redicecionando a página.")
+
             setLocalStorage("@loginUser: token", response.token)
-            checked()
+            
+            setTimeout(() => {
+                checked()
+
+            }, 3000)
         } else {
-            console.log(response)
+            let message = ''
+            if (response.error === 'email invalid!') {
+                message = 'Email inválido!'
+            } else if (response.error === 'password invalid!') {
+                message = 'Senha inválida!'
+            }
+
+            tooltip("Erro!", "Falha ao fazer login", `${message}`)
         }
         
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -118,16 +133,19 @@ export async function register(body, btn) {
         })
 
         const response = await  request.json()
-
+        console.log(body)
+        console.log(response)
         setTimeout(() => {
             btn.innerHTML = "Login"
             btn.disabled = true
         }, 1000)
 
         if (request.ok) {
+            tooltip("Sucesso!", "Cadastro feito com sucesso!", "Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login:", "Acessar página de login")
+
             setTimeout(() => {
                 location.replace("/src/pages/login/index.html")
-            }, 1000)
+            }, 3000)
 
         } else {
             console.log(response)
@@ -136,7 +154,7 @@ export async function register(body, btn) {
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -157,7 +175,7 @@ export async function getInforUser() {
         return response
         
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -176,16 +194,19 @@ export async function pathInforUser(body) {
         })
 
         const response = await request.json()
-        console.log(response)
-        if (request.ok) {
-            location.replace("/src/pages/DashBordUser/index.html")
-            return response
-        } else {
-            return response
-        }
 
+        if (request.ok) {
+            tooltip("Sucesso!", "Alteração feita com sucesso.")
+
+            setTimeout(() => {
+                location.replace("/src/pages/DashBordUser/index.html")
+
+            }, 3000)
+        } 
+        
+        return response
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -210,7 +231,7 @@ export async function getAllDepartment(uuid = ''){
         }
 
     } catch (err) {
-        alert("algo deu errado")
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -231,7 +252,7 @@ export async function getAllUsers() {
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -252,7 +273,7 @@ export async function getDepartamentCompanyUser() {
         return response
 
     } catch (err){
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -273,7 +294,7 @@ export async function getCoworkersDepartment(){
         return response
 
     } catch (err){
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -293,16 +314,20 @@ export async function createDepartment(body) {
         const response = await request.json()
 
         if (request.ok) {
-            const conatinerModal = document.querySelector(".container-modal")
+            tooltip("Sucesso!", "Departamento criado com sucesso!")
 
-            conatinerModal.remove()
-            location.replace("/src/pages/DashBordAdmin/index.html")
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
         }
 
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -322,16 +347,20 @@ export async function editDepartment(body, uuid) {
         const response = await request.json()
 
         if (request.ok) {
-            const conatinerModal = document.querySelector(".container-modal")
+            tooltip("Sucesso!", "Alterações feita com sucesso!")
 
-            conatinerModal.remove()
-            location.replace("/src/pages/DashBordAdmin/index.html")
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
         }
 
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -348,23 +377,26 @@ export async function deleteDepartment(uuid) {
         })
 
         if (request.ok) {
-            const conatinerModal = document.querySelector(".container-modal")
+            tooltip("Sucesso!", "Departamento Deletado com sucesso!")
 
-            conatinerModal.remove()
-            location.replace("/src/pages/DashBordAdmin/index.html")
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
         }
 
         return request
 
     } catch (err) {
-        console.log(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
 
 export async function editUser(body, uuid) {
     try {
-        console.log(body)
         let token = getLocalStorage("@loginUser: token")
         const request =  await fetch(`${baseUrl}admin/update_user/${uuid}`, {
             method: "PATCH",
@@ -378,16 +410,20 @@ export async function editUser(body, uuid) {
         const response = await request.json()
 
         if (request.ok) {
-            const conatinerModal = document.querySelector(".container-modal")
+            tooltip("Sucesso!", "Alterações feitas com sucesso!")
 
-            conatinerModal.remove()
-            location.replace("/src/pages/DashBordAdmin/index.html")
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
         }
 
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -404,16 +440,20 @@ export async function deleteUser(uuid) {
         })
 
         if (request.ok) {
-            const conatinerModal = document.querySelector(".container-modal")
+            tooltip("Sucesso!", "Usuário deletado com sucesso!")
 
-            conatinerModal.remove()
-            location.replace("/src/pages/DashBordAdmin/index.html")
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
         }
 
         return request
 
     } catch (err) {
-        console.log(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -434,7 +474,7 @@ export async function getUserNoCompany() {
         return response
 
     } catch (err){
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }
 
@@ -452,10 +492,53 @@ export async function ToHireCompany(body) {
         })
 
         const response = await request.json()
+        
+        if (request.ok) {
+            tooltip("Sucesso!", "Usuário contratado com sucesso!")
+
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
+        }
+        
+        return response
+
+    } catch (err) {
+        tooltip("Erro!", "Algo deu errado")
+    }
+}
+
+
+export async function userShutdown(uuid) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}departments/dismiss/${uuid}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            tooltip("Sucesso!", "Usuário desligado com sucesso!")
+
+            setTimeout(() => {
+                const conatinerModal = document.querySelector(".container-modal")
+    
+                conatinerModal.remove()
+                location.replace("/src/pages/DashBordAdmin/index.html")
+            }, 3000)
+        }
 
         return response
 
     } catch (err) {
-        alert(err)
+        tooltip("Erro!", "Algo deu errado")
     }
 }

@@ -2,11 +2,14 @@ import { createDepartment, deleteDepartment, deleteUser, editDepartment, editUse
 import { setLocalStorage } from "./LocalStorage.js"
 import { createModalBase } from "./modal.js"
 
-export function eventButtonDesabled(type) {
-    const form = document.querySelector("form")
+export function eventButtonDesabled(type, tag='') {
+    let form = document.querySelector("form")
+    if (tag !== '') {
+        form = tag
+    }
+
     const elements = [...form.elements]
     const button = elements.find((elem) => elem.tagName == "BUTTON")
-
     elements.forEach(elem => {
         if (elem.tagName == "INPUT") {
             elem.addEventListener("keydown", () => {
@@ -78,7 +81,8 @@ export function eventEdit() {
 
     btnEdit.addEventListener("click", () => {
         createModalBase("edit")
-        eventButtonDesabled("edit")
+
+        /* eventButtonDesabled("edit") */
     })
 }
 

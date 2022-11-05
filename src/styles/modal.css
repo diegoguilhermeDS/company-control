@@ -50,9 +50,9 @@
     gap: 1rem;
     position: absolute;
     bottom: 40px;
-    right: -100%;
-    z-index: 100;
-    animation: showModalInfor 6000ms ease-in-out forwards;
+    right: 100px;
+    z-index: 3;
+    animation: showModalInfor 4000ms ease-in-out forwards;
 }
 
 .container-message {

@@ -37,8 +37,8 @@
         4 - salvar token no localStorage - OK
         5. verificando tipo de usuário - OK
 
-4 - mensagens de erro QUASE
-    a. validação de erro
+4 - mensagens de erro FEITO
+    a. validação de erro - OK
     b. mostrar mensagem de erro no modal - OK
 
 5 - DashBord User FEITO
@@ -56,7 +56,7 @@
         2. logout - OK
         3. editar informações - OK
 
-6 - DashBord Admin
+6 - DashBord Admin FEITO
     1 - estruturação - OK
     2 - estilização - 
         a. MoblieFirst - OK
