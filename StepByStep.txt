@@ -69,11 +69,11 @@
     5 - exibir modal atraves do data setAttribute
         a. buttonMenuCard - OK
         b. mostrar modal - OK
-    6 - criar cada funcionalidade para cada modal especifico 
+    6 - criar cada funcionalidade para cada modal especifico - OK
         a. create - OK
         b. edit - OK
         c. remove - OK
-        d. editUser - 
-        e. deleteUser -
+        d. editUser - OK
+        e. deleteUser - OK
 
 7 - arrumar estilos como cores e textos

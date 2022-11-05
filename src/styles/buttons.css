@@ -122,6 +122,9 @@
     width: 1.125rem;
 }
 
+.button-visibility {
+    width: 40%;
+}
 
 @keyframes searchAnimate {
     0% {

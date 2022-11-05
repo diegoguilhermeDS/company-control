@@ -1,4 +1,4 @@
-import { getAllCompanies } from "./api.js"
+import { getAllCompanies, getUserNoCompany } from "./api.js"
 import { professional_level_list, kind_of_work } from "./data.js"
 
 async function eventSelectModal(select) {
@@ -76,7 +76,35 @@ function eventSelectInforUserEdit(selectLevel, selectModality) {
 }
 
 
+async function eventSelectUserNoCompany(select) {
+    const users = await getUserNoCompany()
+
+    users.forEach((comp, index) => {
+        let opt = document.createElement("option")
+        opt.setAttribute("value", index + 1)
+        opt.id = comp.uuid
+        opt.innerText = comp.username
+
+        select.appendChild(opt)
+    })
+
+    if (select.options[select.selectedIndex].text == "Selecionar Usuário") {
+        select.style.color = "var(--color-grey-400)";
+    }
+
+    select.addEventListener("change", () => {
+        let companyTextCurrency = select.options[select.selectedIndex].text
+
+        if (companyTextCurrency == "Selecionar Empresa") {
+            select.style.color = "var(--color-grey-400)";
+        } else {
+            select.style.color = "var(--color-grey-100)";
+        }
+    })
+}
+
 export {
     eventSelectModal,
-    eventSelectInforUserEdit
+    eventSelectInforUserEdit,
+    eventSelectUserNoCompany
 }
