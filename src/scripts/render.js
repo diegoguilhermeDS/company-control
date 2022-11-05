@@ -228,7 +228,7 @@ async function renderAllUsers() {
     listUsersRegistered.innerHTML = ''
 
     const listAllUserApi = await getAllUsers()
-    let list = listAllUserApi.forEach(async (user) => {
+    listAllUserApi.forEach(async (user) => {
         if (user.username !== "ADMIN") {
             const { uuid, username, professional_level, department_uuid
             } = user
@@ -248,6 +248,28 @@ async function renderAllUsers() {
             const userRegistered = document.createElement("li")
             userRegistered.classList.add("user-registered")
             userRegistered.id = uuid
+
+            const nav = document.createElement("nav")
+            nav.classList.add("nav-btns")
+
+            const btnEdit = document.createElement("button")
+            btnEdit.classList.add("btn-base-menu")
+            btnEdit.setAttribute("data-modal-control", "edit-user")
+            btnEdit.innerHTML = `<img src="/src/assets/img/Vector (1).png" alt="icone editar">`
+
+            const btnDele = document.createElement("button")
+            btnDele.classList.add("btn-base-menu")
+            btnDele.setAttribute("data-modal-control", "delete-user")
+            btnDele.innerHTML = `<img src="/src/assets/img/Vector (3).png" alt="icone deletar">`
+
+            nav.append(btnEdit, btnDele)
+
+            const btnMenuDep = document.createElement("button")
+            btnMenuDep.classList.add("button-menu-department")
+            btnMenuDep.id = "show"
+            btnMenuDep.setAttribute("data-menu-control", "menu")
+            btnMenuDep.innerHTML = `<img src="/src/assets/img/Vector.png" alt="icone menu">
+            `
     
             userRegistered.innerHTML = `
             <div class="infor-user-registered">
@@ -255,17 +277,44 @@ async function renderAllUsers() {
                 <span>${prof}</span>
                 <span>${depName}</span>
             </div>
-            <nav class="nav-btns">
-                <button class="btn-base-menu"><img src="/src/assets/img/Vector (1).png" alt="icone editar"></button>
-                <button class="btn-base-menu"><img src="/src/assets/img/Vector (3).png" alt="icone deletar"></button>
-            </nav>
-            <button class="button-menu-department" id="show"><img src="/src/assets/img/Vector.png" alt="icone menu" class="btn-menu-img"></button>
             `
 
-            
+            userRegistered.append(nav, btnMenuDep)
             listUsersRegistered.appendChild(userRegistered)
+
+            btnMenuDep.addEventListener("click", () => {
+                btnMenuDep.parentElement.children[1].classList.toggle("nav-show")
+
+            if (btnMenuDep.id == "show") {
+                btnMenuDep.id = "close"
+                btnMenuDep.children[0].src = "/src/assets/img/Vector (4).png"
+
+            } else if (btnMenuDep.id == "close") {
+                btnMenuDep.id = "show"
+                btnMenuDep.children[0].src = "/src/assets/img/Vector.png"
+            }
+            })
+
+            
+            btnEdit.addEventListener("click", () => {
+                let atribute = btnEdit.getAttribute("data-modal-control")
+
+                let uuid = btnEdit.parentElement.parentElement.id
+
+                createModalBase(atribute, '', uuid)
+            }) 
+
+            btnDele.addEventListener("click", () => {
+                let atribute = btnDele.getAttribute("data-modal-control")
+
+                let uuid = btnDele.parentElement.parentElement.id
+
+                createModalBase(atribute, '', uuid)
+            })
         }  
     })
+
+    
 }
 
 

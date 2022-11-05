@@ -7,4 +7,3 @@ eventLogout()
 
 await renderSelectCompany()
 
-
