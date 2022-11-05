@@ -1,6 +1,6 @@
 import { getAllDepartment, getAllUsers } from "./api.js"
-import { eventCloseModal, eventSubmitDeleteModal, eventSubmitDeleteModalUser, eventSubmitEditModal, eventSubmitEditUser, eventSubmitModalCreate } from "./eventButtons.js"
-import { eventSelectInforUserEdit, eventSelectModal } from "./eventSelect.js"
+import { eventCloseModal, eventSubmitDeleteModal, eventSubmitDeleteModalUser, eventSubmitEditModal, eventSubmitEditUser, eventSubmitModalCreate, eventSubmitToHire } from "./eventButtons.js"
+import { eventSelectInforUserEdit, eventSelectModal, eventSelectUserNoCompany } from "./eventSelect.js"
 
 
 
@@ -20,11 +20,15 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
     }
 
     let userFind = ''
+    let users = await getAllUsers()
+    
     if (uuidUser !== '') {
-        let users = await getAllUsers()
         userFind = users.find((u) => u.uuid == uuidUser)
     }
 
+    let currentDepartmentUsers = users.filter((user) => user.department_uuid == depFind.uuid)
+
+    
     if (type == 'edit') {
         modal.innerHTML = `
             <button class="button-close"><img src="/src/assets/img/Vector (4).png" alt="icon close"></button>
@@ -136,11 +140,69 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         modal.classList.add("modal-delete")
         
         eventSubmitDeleteModalUser(btnCreate, uuidUser)
+    } else if (type == 'visibility') {
+        modal.innerHTML = `
+            <button class="button-close"><img src="/src/assets/img/Vector (4).png" alt="icon close"></button>
+        `
+        modal.classList.add("modal-visibility")
+
+        let nameDep = document.createElement("h1")
+        nameDep.innerText = `${depFind.name}`
+        nameDep.classList.add("font-1-bold")
+
+        let headerModal = document.createElement("header")
+        headerModal.innerHTML = `
+            <div class="container-company-infor">
+                <h3 class="font-4-semibold">${depFind.description}</h3>
+                <span class="font-4-regular">${depFind.companies.name}</span>
+            </div>
+        `
+
+        let divSelect = document.createElement("div")
+        divSelect.classList.add("div-select")
+
+        let select = document.createElement("select")
+        select.classList.add("font-5-semibold")
+        select.id = "company_uuid"
+        select.setAttribute("name", "select-modal")
+        select.innerHTML = `
+            <option value="0">Selecionar Usuário</option>
+        `
+
+        let btnAdd = document.createElement("button")
+        btnAdd.innerText = "Contratar"
+        btnAdd.classList.add("button-base", "button-brand-1", "button-visibility")
+
+        let listUserDep = document.createElement("ul")
+        listUserDep.classList.add("list-user-dep")
+        
+        currentDepartmentUsers.forEach((user) => {
+            let userTag = document.createElement("li")
+            userTag.classList.add("user-dep")
+            userTag.id = user.uuid
+            userTag.innerHTML = `
+                <div>
+                    <h2>${user.username}</h2>
+                    <span>${user.professional_level !== null ? user.professional_level : "Ainda não definido"}</span>
+                    <span>${depFind.companies.name}</span>
+                </div>
+                <button class="button-base button-brand-2" id="off">Desligar</button>
+            `
+
+            listUserDep.appendChild(userTag)
+        })
+
+        divSelect.append(select, btnAdd)
+        headerModal.append(divSelect)
+        modal.append(nameDep, headerModal, listUserDep)
+
+        eventSelectUserNoCompany(select)
+        eventSubmitToHire(btnAdd, depFind.uuid, select)
     }
     
     
     containerModal.append(modal)
     body.appendChild(containerModal)
-
+    
     eventCloseModal()
 }

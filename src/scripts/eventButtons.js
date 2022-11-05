@@ -1,4 +1,4 @@
-import { createDepartment, deleteDepartment, deleteUser, editDepartment, editUser, login, pathInforUser, register } from "./api.js"
+import { createDepartment, deleteDepartment, deleteUser, editDepartment, editUser, login, pathInforUser, register, ToHireCompany } from "./api.js"
 import { setLocalStorage } from "./LocalStorage.js"
 import { createModalBase } from "./modal.js"
 
@@ -183,5 +183,20 @@ export function eventSubmitEditUser(btn, selectModality, selectLevel, uuid){
 export function eventSubmitDeleteModalUser(btn, uuid) {
     btn.addEventListener("click", () => {
         deleteUser(uuid)
+    })
+}
+
+
+export function eventSubmitToHire(btn, uuid, select) {
+    btn.addEventListener("click", () => {
+        if (select.value !== 0) {
+            const body = {}
+            const user = select.options[select.selectedIndex].id
+
+            body["user_uuid"] = user
+            body["department_uuid"] = uuid
+
+            ToHireCompany(body)
+        }
     })
 }

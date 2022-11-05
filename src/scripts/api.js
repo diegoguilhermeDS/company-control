@@ -416,3 +416,46 @@ export async function deleteUser(uuid) {
         console.log(err)
     }
 }
+
+
+export async function getUserNoCompany() {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request = await fetch(`${baseUrl}admin/out_of_work`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const response = await request.json()
+
+        return response
+
+    } catch (err){
+        alert(err)
+    }
+}
+
+
+export async function ToHireCompany(body) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}departments/hire/`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }, 
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+
+        return response
+
+    } catch (err) {
+        alert(err)
+    }
+}
