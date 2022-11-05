@@ -177,6 +177,10 @@ option {
     width: 100%;
 }
 
+.user-dep > div > h2 {
+    width: 200px;
+}
+
 .user-dep > button {
     width: 70%;
 }

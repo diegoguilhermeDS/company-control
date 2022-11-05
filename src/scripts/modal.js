@@ -1,4 +1,4 @@
-import { getAllDepartment, getAllUsers } from "./api.js"
+import { getAllDepartment, getAllUsers, userShutdown } from "./api.js"
 import { eventCloseModal, eventSubmitDeleteModal, eventSubmitDeleteModalUser, eventSubmitEditModal, eventSubmitEditUser, eventSubmitModalCreate, eventSubmitToHire } from "./eventButtons.js"
 import { eventSelectInforUserEdit, eventSelectModal, eventSelectUserNoCompany } from "./eventSelect.js"
 
@@ -186,10 +186,21 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
                     <span>${user.professional_level !== null ? user.professional_level : "Ainda não definido"}</span>
                     <span>${depFind.companies.name}</span>
                 </div>
-                <button class="button-base button-brand-2" id="off">Desligar</button>
             `
 
+            let btnOff = document.createElement("button")
+            btnOff.classList.add("button-base", "button-brand-2")
+            btnOff.id = "off"
+            btnOff.innerText = "Desligar"
+
+            userTag.appendChild(btnOff)
+
             listUserDep.appendChild(userTag)
+
+            btnOff.addEventListener("click", () => {
+                let id = btnOff.parentElement.id
+                userShutdown(id)
+            })
         })
 
         divSelect.append(select, btnAdd)
