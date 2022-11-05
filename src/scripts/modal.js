@@ -1,10 +1,11 @@
 import { getAllDepartment, getAllUsers, userShutdown } from "./api.js"
-import { eventCloseModal, eventSubmitDeleteModal, eventSubmitDeleteModalUser, eventSubmitEditModal, eventSubmitEditUser, eventSubmitModalCreate, eventSubmitToHire } from "./eventButtons.js"
+import { eventButtonDesabled, eventCloseModal, eventSubmitDeleteModal, eventSubmitDeleteModalUser, eventSubmitEditModal, eventSubmitEditUser, eventSubmitModalCreate, eventSubmitToHire } from "./eventButtons.js"
 import { eventSelectInforUserEdit, eventSelectModal, eventSelectUserNoCompany } from "./eventSelect.js"
 
 
 
 export async function createModalBase(type, uuidCard='', uuidUser = '') {
+
     const body = document.querySelector("body")
 
     const containerModal = document.createElement("div")
@@ -26,20 +27,29 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         userFind = users.find((u) => u.uuid == uuidUser)
     }
 
-    let currentDepartmentUsers = users.filter((user) => user.department_uuid == depFind.uuid)
+    let currentDepartmentUsers = ''
+    if (depFind !== '') {
+        currentDepartmentUsers = users.filter((user) => user.department_uuid == depFind.uuid)
+    }
 
     
     if (type == 'edit') {
+        const form = document.createElement("form")
+        form.classList.add("form-edit-modal")
+        form.innerHTML = `
+            <input class="input-base" type="text" name="name" id="username" placeholder="Seu nome">
+            <input class="input-base" type="email" name="email" id="email" placeholder="Seu e-mail">
+            <input class="input-base" type="password" name="password" id="password" placeholder="Sua senha">
+            <button type="submit" class="button-base button-brand-1" >Editar perfil</button>
+        `
+
         modal.innerHTML = `
             <button class="button-close"><img src="/src/assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Editar Perfil</h2>
-            <form class="form-edit-modal">
-                <input class="input-base" type="text" name="name" id="username" placeholder="Seu nome">
-                <input class="input-base" type="email" name="email" id="email" placeholder="Seu e-mail">
-                <input class="input-base" type="password" name="password" id="password" placeholder="Sua senha">
-                <button type="submit" class="button-base button-brand-1" >Editar perfil</button>
-            </form>
-        `
+        ` 
+        modal.appendChild(form)
+
+        eventButtonDesabled("edit", form)
     } else if (type == 'create') {
         let btnCreate = document.createElement("button")
         btnCreate.classList.add("button-base", "button-brand-1")
