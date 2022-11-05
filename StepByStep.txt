@@ -76,4 +76,6 @@
         d. editUser - OK
         e. deleteUser - OK
 
-7 - arrumar estilos como cores e textos
+7 - Ajeitar modal edit user
+
+8 - arrumar estilos como cores e textos
