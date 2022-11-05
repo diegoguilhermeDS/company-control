@@ -72,6 +72,8 @@
     6 - criar cada funcionalidade para cada modal especifico 
         a. create - OK
         b. edit - OK
-        c. remove - 
+        c. remove - OK
+        d. editUser - 
+        e. deleteUser -
 
 7 - arrumar estilos como cores e textos

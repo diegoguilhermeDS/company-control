@@ -360,3 +360,59 @@ export async function deleteDepartment(uuid) {
         console.log(err)
     }
 }
+
+
+export async function editUser(body, uuid) {
+    try {
+        console.log(body)
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}admin/update_user/${uuid}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }, 
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            const conatinerModal = document.querySelector(".container-modal")
+
+            conatinerModal.remove()
+            location.replace("/src/pages/DashBordAdmin/index.html")
+        }
+
+        return response
+
+    } catch (err) {
+        alert(err)
+    }
+}
+
+
+export async function deleteUser(uuid) {
+    try {
+        let token = getLocalStorage("@loginUser: token")
+        const request =  await fetch(`${baseUrl}admin/delete_user/${uuid}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        if (request.ok) {
+            const conatinerModal = document.querySelector(".container-modal")
+
+            conatinerModal.remove()
+            location.replace("/src/pages/DashBordAdmin/index.html")
+        }
+
+        return request
+
+    } catch (err) {
+        console.log(err)
+    }
+}

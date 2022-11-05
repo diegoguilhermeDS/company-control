@@ -1,4 +1,4 @@
-import { createDepartment, deleteDepartment, editDepartment, login, pathInforUser, register } from "./api.js"
+import { createDepartment, deleteDepartment, deleteUser, editDepartment, editUser, login, pathInforUser, register } from "./api.js"
 import { setLocalStorage } from "./LocalStorage.js"
 import { createModalBase } from "./modal.js"
 
@@ -138,5 +138,50 @@ export function eventSubmitEditModal(btn, uuid) {
 export function eventSubmitDeleteModal(btn, uuid) {
     btn.addEventListener("click", () => {
         deleteDepartment(uuid)
+    })
+}
+
+
+export function eventSubmitEditUser(btn, selectModality, selectLevel, uuid){
+
+    let textModality = selectModality.options[selectModality.selectedIndex].text 
+    let textLevel = selectLevel.options[selectLevel.selectedIndex].text
+    
+    selectLevel.addEventListener("change", () => {
+        if (selectLevel.value !== 0 || selectModality.value !==0) {
+            btn.disabled = false
+
+            textModality =  selectModality.options[selectModality.selectedIndex].text 
+            textLevel = selectLevel.options[selectLevel.selectedIndex].text
+        }
+    })
+
+    selectModality.addEventListener("change", () => {
+        if (selectLevel.value !== 0 || selectModality.value !==0) {
+            btn.disabled = false
+            
+            textModality =  selectModality.options[selectModality.selectedIndex].text 
+            textLevel = selectLevel.options[selectLevel.selectedIndex].text 
+        }
+    })
+
+    btn.addEventListener("click", () => {
+        const body = {}
+        
+        if (selectLevel.value != 0) {
+            body[selectLevel.id] = textLevel
+        }
+        if (selectModality.value != 0) {
+            body[selectModality.id] = textModality
+        }
+
+        
+        editUser(body, uuid)
+    })
+}
+
+export function eventSubmitDeleteModalUser(btn, uuid) {
+    btn.addEventListener("click", () => {
+        deleteUser(uuid)
     })
 }

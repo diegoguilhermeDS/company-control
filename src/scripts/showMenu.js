@@ -21,7 +21,7 @@ function eventShowMenu() {
 
 function eventShowMenuCard(){
     const btns = document.querySelectorAll("[data-menu-control]")
-
+    
     btns.forEach((btn) => {
         btn.addEventListener("click", () => {
             btn.parentElement.children[1].classList.toggle("nav-show")
@@ -29,7 +29,6 @@ function eventShowMenuCard(){
             if (btn.id == "show") {
                 btn.id = "close"
                 btn.children[0].src = "/src/assets/img/Vector (4).png"
-                btn.children[0].style.width = "16px"
 
             } else if (btn.id == "close") {
                 btn.id = "show"
