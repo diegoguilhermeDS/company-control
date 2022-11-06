@@ -38,6 +38,15 @@
     color: var(--color-grey-800);
 }
 
+.button-sucess {
+    background-color: var(--color-feedback-sucess);
+}
+
+.button-alert {
+    background-color: var(--color-feedback-alert);
+}
+
+
 /* style btn sector */
 .sector-btn {
     border: 1px solid var(--color-brand-200);
