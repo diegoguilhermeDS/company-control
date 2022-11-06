@@ -195,11 +195,11 @@ async function renderDepartmentAll(companySelected) {
                     <span>${companies.name}</span>
                 </div>
                 <nav class="nav-btns">
-                    <button class="btn-base-menu" data-modal-control="visibility"><img src="../assets/img/Vector (5).png" alt="icone visualizar"></button>
-                    <button class="btn-base-menu" data-modal-control="edit-admin"><img src="../assets/img/Vector (1).png" alt="icone editar"></button>
-                    <button class="btn-base-menu" data-modal-control="delete"><img src="../assets/img/Vector (3).png" alt="icone deletar"></button>
+                    <button class="btn-base-menu" data-modal-control="visibility"><img src="../../assets/img/Vector (5).png" alt="icone visualizar"></button>
+                    <button class="btn-base-menu" data-modal-control="edit-admin"><img src="../../assets/img/Vector (1).png" alt="icone editar"></button>
+                    <button class="btn-base-menu" data-modal-control="delete"><img src="../../assets/img/Vector (3).png" alt="icone deletar"></button>
                 </nav>
-                <button class="button-menu-department" id="show" data-menu-control="menu"><img src="../assets/img/Vector.png" alt=""></button>
+                <button class="button-menu-department" id="show" data-menu-control="menu"><img src="../../assets/img/Vector.png" alt=""></button>
             `
             listDepartment.appendChild(department)
         })
@@ -255,12 +255,12 @@ async function renderAllUsers() {
             const btnEdit = document.createElement("button")
             btnEdit.classList.add("btn-base-menu")
             btnEdit.setAttribute("data-modal-control", "edit-user")
-            btnEdit.innerHTML = `<img src="../assets/img/Vector (1).png" alt="icone editar">`
+            btnEdit.innerHTML = `<img src="../../assets/img/Vector (1).png" alt="icone editar">`
 
             const btnDele = document.createElement("button")
             btnDele.classList.add("btn-base-menu")
             btnDele.setAttribute("data-modal-control", "delete-user")
-            btnDele.innerHTML = `<img src="../assets/img/Vector (3).png" alt="icone deletar">`
+            btnDele.innerHTML = `<img src="../../assets/img/Vector (3).png" alt="icone deletar">`
 
             nav.append(btnEdit, btnDele)
 
@@ -268,7 +268,7 @@ async function renderAllUsers() {
             btnMenuDep.classList.add("button-menu-department")
             btnMenuDep.id = "show"
             btnMenuDep.setAttribute("data-menu-control", "menu")
-            btnMenuDep.innerHTML = `<img src="../assets/img/Vector.png" alt="icone menu">
+            btnMenuDep.innerHTML = `<img src="../../assets/img/Vector.png" alt="icone menu">
             `
     
             userRegistered.innerHTML = `
@@ -287,11 +287,11 @@ async function renderAllUsers() {
 
             if (btnMenuDep.id == "show") {
                 btnMenuDep.id = "close"
-                btnMenuDep.children[0].src = "../assets/img/Vector (4).png"
+                btnMenuDep.children[0].src = "../../assets/img/Vector (4).png"
 
             } else if (btnMenuDep.id == "close") {
                 btnMenuDep.id = "show"
-                btnMenuDep.children[0].src = "../assets/img/Vector.png"
+                btnMenuDep.children[0].src = "../../assets/img/Vector.png"
             }
             })
 
