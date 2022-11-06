@@ -52,7 +52,7 @@ function eventSubmit(form, elements, type) {
         })
 
         btn.innerHTML = `
-        <img class="icon-search" src="/src/assets/img/spinner.png" alt="icone de procura">
+        <img class="icon-search" src="../assets/img/spinner.png" alt="icone de procura">
         `
         
         if (type == 'login') {
@@ -81,8 +81,6 @@ export function eventEdit() {
 
     btnEdit.addEventListener("click", () => {
         createModalBase("edit")
-
-        /* eventButtonDesabled("edit") */
     })
 }
 
