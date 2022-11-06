@@ -7,9 +7,9 @@ async function checked() {
     let resp = await checkUserTypeApi(token)
     
     if (resp.is_admin === true) {
-        location.replace("/src/pages/DashBordAdmin/index.html")
+        location.replace("../../pages/DashBordAdmin/index.html")
     } else {
-        location.replace("/src/pages/DashBordUser/index.html")
+        location.replace("../../pages/DashBordUser/index.html")
     }
 }
 

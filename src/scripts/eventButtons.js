@@ -72,7 +72,7 @@ export function eventLogout() {
     btnLogout.addEventListener("click", () => {
         setLocalStorage("@loginUser: token", [])
 
-        location.replace("/src/pages/home/index.html")
+        location.replace("../../pages/home/index.html")
     })
 }
 
