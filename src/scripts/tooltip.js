@@ -21,7 +21,7 @@ const tooltip = (status, title, message='', link='') => {
         if (message.length > 0) {
             if (link.length > 0) {
                 text.innerHTML = `
-                <span class="">${message} <a href="/src/pages/login/index.html" class="">${link}</a></span>
+                <span class="">${message} <a href="../../pages/login/index.html" class="">${link}</a></span>
             `
             } else {
                 text.innerHTML = `

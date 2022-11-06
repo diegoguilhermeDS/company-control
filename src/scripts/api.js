@@ -144,7 +144,7 @@ export async function register(body, btn) {
             tooltip("Sucesso!", "Cadastro feito com sucesso!", "Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login:", "Acessar página de login")
 
             setTimeout(() => {
-                location.replace("/src/pages/login/index.html")
+                location.replace("../../pages/login/index.html")
             }, 3000)
 
         } else {
@@ -199,7 +199,7 @@ export async function pathInforUser(body) {
             tooltip("Sucesso!", "Alteração feita com sucesso.")
 
             setTimeout(() => {
-                location.replace("/src/pages/DashBordUser/index.html")
+                location.replace("../../pages/DashBordUser/index.html")
 
             }, 3000)
         } 
@@ -320,7 +320,7 @@ export async function createDepartment(body) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
 
@@ -353,7 +353,7 @@ export async function editDepartment(body, uuid) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
 
@@ -383,7 +383,7 @@ export async function deleteDepartment(uuid) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
 
@@ -416,7 +416,7 @@ export async function editUser(body, uuid) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
 
@@ -446,7 +446,7 @@ export async function deleteUser(uuid) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
 
@@ -500,7 +500,7 @@ export async function ToHireCompany(body) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
         
@@ -532,7 +532,7 @@ export async function userShutdown(uuid) {
                 const conatinerModal = document.querySelector(".container-modal")
     
                 conatinerModal.remove()
-                location.replace("/src/pages/DashBordAdmin/index.html")
+                location.replace("../../pages/DashBordAdmin/index.html")
             }, 3000)
         }
 
