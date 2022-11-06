@@ -44,7 +44,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         `
 
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Editar Perfil</h2>
         ` 
         modal.appendChild(form)
@@ -64,7 +64,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         `
 
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Criar Departamento</h2>
             <form class="form-create-modal">
                 <input class="input-base" type="text" name="name" id="name" placeholder="Nome do departamento">
@@ -83,7 +83,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         btnCreate.innerText = "Salvar alterações"
 
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Editar Departamento</h2>
             <textarea name="description" id="description" cols="30" rows="10" class="textarea-edit" placeholder="Descrição">${depFind.description}</textarea>
         `
@@ -97,7 +97,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         btnCreate.innerText = "Confirmar"
 
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Realmente deseja deletar o Despartamento ${depFind.name} e demitir seus funcionários?</h2>
         `
 
@@ -107,7 +107,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         eventSubmitDeleteModal(btnCreate, depFind.uuid)
     } else if (type == 'edit-user') {
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Editar Usuário</h2>
         `
 
@@ -142,7 +142,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         btnCreate.innerText = "Deletar"
 
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Realmente deseja remover o usuário ${userFind.username}?</h2>
         `
 
@@ -152,7 +152,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         eventSubmitDeleteModalUser(btnCreate, uuidUser)
     } else if (type == 'visibility') {
         modal.innerHTML = `
-            <button class="button-close"><img src="../assets/img/Vector (4).png" alt="icon close"></button>
+            <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
         `
         modal.classList.add("modal-visibility")
 

@@ -12,7 +12,7 @@ const tooltip = (status, title, message='', link='') => {
     if (status == "Sucesso!") {
         containerMessage.innerHTML = `
         <div class="circle circle-sucess">
-            <img src="../assets/img/check.png" alt="Mensagem de ${status}">
+            <img src="../../assets/img/check.png" alt="Mensagem de ${status}">
         </div>
         <h3 class="font-4-semibold">${title}</h3>
         `
@@ -35,7 +35,7 @@ const tooltip = (status, title, message='', link='') => {
     } else if (status == "Erro!") {
         containerMessage.innerHTML = `
         <div class="circle circle-fail">
-            <img src="../assets/img/gross-dark-cross.png" alt="Mensagem de ${status}">
+            <img src="../../assets/img/gross-dark-cross.png" alt="Mensagem de ${status}">
         </div>
         <h3 class="font-4-semibold">${title}</h3>
         `
