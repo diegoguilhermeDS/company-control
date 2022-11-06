@@ -9,11 +9,11 @@ function eventShowMenu() {
 
         if (btnMenu.id == "show") {
             btnMenu.id = "close"
-            img.src = "/src/assets/img/Vector (4).png"
+            img.src = "../assets/img/Vector (4).png"
 
         } else if(btnMenu.id == "close") {
             btnMenu.id = "show"
-            img.src = "/src/assets/img/Vector.png"
+            img.src = "../assets/img/Vector.png"
         }
     })
 }
@@ -28,11 +28,11 @@ function eventShowMenuCard(){
 
             if (btn.id == "show") {
                 btn.id = "close"
-                btn.children[0].src = "/src/assets/img/Vector (4).png"
+                btn.children[0].src = "../assets/img/Vector (4).png"
 
             } else if (btn.id == "close") {
                 btn.id = "show"
-                btn.children[0].src = "/src/assets/img/Vector.png"
+                btn.children[0].src = "../assets/img/Vector.png"
             }
         })
     })
