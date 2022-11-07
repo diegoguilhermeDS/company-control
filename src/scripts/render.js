@@ -46,8 +46,8 @@ async function renderCompaniesHomePage(sector = '') {
         li.innerHTML = `
             <h3 class="font-3-bold">${name}</h3>
             <div>
-                <span class="font-4-regular">${opening_hours} horas</span>
-                <span class="font-4-regular sector-btn">${sectors.description}</span>
+                <span class="font-4-regular grey-3">${opening_hours} horas</span>
+                <span class="font-4-semibold sector-btn brand-2">${sectors.description}</span>
             </div>
         `
 
@@ -62,20 +62,20 @@ async function renderInforUser() {
     let containerInforUser = document.querySelector(".container-user-infor")
 
     containerInforUser.insertAdjacentHTML("beforeend", `
-        <h2 class="font-3-semibold">${user.username}</h2>
+        <h2 class="font-3-semibold brand-2">${user.username}</h2>
         <ul class="list-infor">
-            <li class="font-4-regular">Email: ${user.email}</li>
+            <li class="font-4-regular grey-1">Email: ${user.email}</li>
         </ul>
     `)
 
     if (user.kind_of_work !== null) {
         let list = document.querySelector(".list-infor")
-        list.insertAdjacentHTML("beforeend", `<li class="font-4-regular">${user.kind_of_work}</li>`)
+        list.insertAdjacentHTML("beforeend", `<li class="font-4-regular grey-1">${user.kind_of_work}</li>`)
     } 
 
     if (user.professional_level !== null) {
         let list = document.querySelector(".list-infor")
-        list.insertAdjacentHTML("beforeend", `<li class="font-4-regular">${user.professional_level}</li>`)
+        list.insertAdjacentHTML("beforeend", `<li class="font-4-regular grey-1">${user.professional_level}</li>`)
     }
 }
 
@@ -108,7 +108,7 @@ async function renderCompanyUser() {
                 coWorkersTag.classList.add("co-workers")
                 
                 coWorkersTag.innerHTML = `
-                    <h3>${co.username}</h3>
+                    <h3 class="font-3-semibold brand-2">${co.username}</h3>
                     <span>${co.professional_level == null ? "Ainda não definido" : co.professional_level}</span>
                 `
 
@@ -127,7 +127,7 @@ async function renderCompanyUser() {
     } else {
         containterJob.classList.add("container-empty")
 
-        containterJob.insertAdjacentHTML("afterbegin", '<h1 class="font-3-semibold">Você ainda não foi contratado</h1>')
+        containterJob.insertAdjacentHTML("afterbegin", '<h1 class="font-3-semibold brand-2">Você ainda não foi contratado</h1>')
     }
 }
 
@@ -146,7 +146,7 @@ async function renderSelectCompany() {
     })
     
     if (select.options[select.selectedIndex].text == "Selecionar Empresa") {
-        select.style.color = "var(--color-grey-400)";
+        select.classList.add("grey-4")
         renderDepartmentAll()
     }
 
@@ -154,10 +154,12 @@ async function renderSelectCompany() {
         let companyTextCurrency = select.options[select.selectedIndex].text
 
         if (companyTextCurrency == "Selecionar Empresa") {
-            select.style.color = "var(--color-grey-400)";
+            select.classList.remove("brand-2", "font-5-semibold")
+            select.classList.add("grey-4")
             renderDepartmentAll()
         } else {
-            select.style.color = "var(--color-grey-100)";
+            select.classList.remove("grey-4")
+            select.classList.add("brand-2", "font-5-semibold")
             renderDepartmentAll(select.options[select.selectedIndex].id)
         }
     })
@@ -171,6 +173,7 @@ async function renderDepartmentAll(companySelected) {
 
     if (departments == 0) {
         let textNotFoundCompanies = document.createElement("h1")
+        textNotFoundCompanies.classList.add("brand-2")
         textNotFoundCompanies.innerText = 'Nenhum Departamento cadastrado nesta Empresa.'
         textNotFoundCompanies.style.textAlign = "center";
         listDepartment.appendChild(textNotFoundCompanies)
@@ -190,9 +193,9 @@ async function renderDepartmentAll(companySelected) {
     
             department.innerHTML = `
                 <div class="infor-department">
-                    <h3>${name}</h3>
-                    <span>${description}</span>
-                    <span>${companies.name}</span>
+                    <h3 class="grey-2">${name}</h3>
+                    <span class="grey-2">${description}</span>
+                    <span class="grey-3">${companies.name}</span>
                 </div>
                 <nav class="nav-btns">
                     <button class="btn-base-menu" data-modal-control="visibility"><img src="../../assets/img/Vector (5).png" alt="icone visualizar"></button>
@@ -273,9 +276,9 @@ async function renderAllUsers() {
     
             userRegistered.innerHTML = `
             <div class="infor-user-registered">
-                <h3>${username}</h3>
-                <span>${prof}</span>
-                <span>${depName}</span>
+                <h3 class="grey-2">${username}</h3>
+                <span class="grey-2">${prof}</span>
+                <span class="grey-3">${depName}</span>
             </div>
             `
 
