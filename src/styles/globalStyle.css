@@ -45,6 +45,7 @@
     text-decoration: none;
     list-style: none;
     font-family: "Inter", sans-serif;
+    color: var(--color-grey-000);
 }
 
 .container {

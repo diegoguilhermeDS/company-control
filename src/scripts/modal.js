@@ -45,7 +45,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
 
         modal.innerHTML = `
             <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
-            <h2 class="font-2-bold">Editar Perfil</h2>
+            <h2 class="font-2-bold brand-2">Editar Perfil</h2>
         ` 
         modal.appendChild(form)
 
@@ -93,7 +93,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         eventSubmitEditModal(btnCreate, depFind.uuid)
     } else if (type == 'delete') {
         let btnCreate = document.createElement("button")
-        btnCreate.classList.add("button-base", "button-brand-1")
+        btnCreate.classList.add("button-base", "button-sucess")
         btnCreate.innerText = "Confirmar"
 
         modal.innerHTML = `
@@ -138,7 +138,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         eventSubmitEditUser(btnSave, selectModality, selectLevel, uuidUser)
     } else if (type == 'delete-user') {
         let btnCreate = document.createElement("button")
-        btnCreate.classList.add("button-base", "button-brand-1")
+        btnCreate.classList.add("button-base", "button-sucess")
         btnCreate.innerText = "Deletar"
 
         modal.innerHTML = `
@@ -158,13 +158,13 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
 
         let nameDep = document.createElement("h1")
         nameDep.innerText = `${depFind.name}`
-        nameDep.classList.add("font-1-bold")
+        nameDep.classList.add("font-1-bold", "brand-2")
 
         let headerModal = document.createElement("header")
         headerModal.innerHTML = `
             <div class="container-company-infor">
-                <h3 class="font-4-semibold">${depFind.description}</h3>
-                <span class="font-4-regular">${depFind.companies.name}</span>
+                <h3 class="font-4-semibold grey-2">${depFind.description}</h3>
+                <span class="font-4-regular grey-3">${depFind.companies.name}</span>
             </div>
         `
 
@@ -172,7 +172,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         divSelect.classList.add("div-select")
 
         let select = document.createElement("select")
-        select.classList.add("font-5-semibold")
+        select.classList.add("font-5-regular")
         select.id = "company_uuid"
         select.setAttribute("name", "select-modal")
         select.innerHTML = `
@@ -181,7 +181,7 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
 
         let btnAdd = document.createElement("button")
         btnAdd.innerText = "Contratar"
-        btnAdd.classList.add("button-base", "button-brand-1", "button-visibility")
+        btnAdd.classList.add("button-base", "button-sucess", "button-visibility", "button-base-2")
 
         let listUserDep = document.createElement("ul")
         listUserDep.classList.add("list-user-dep")
@@ -192,14 +192,14 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
             userTag.id = user.uuid
             userTag.innerHTML = `
                 <div>
-                    <h2>${user.username}</h2>
-                    <span>${user.professional_level !== null ? user.professional_level : "Ainda não definido"}</span>
-                    <span>${depFind.companies.name}</span>
+                    <h2 class="font-4-semibold grey-2">${user.username}</h2>
+                    <span class="grey-2">${user.professional_level !== null ? user.professional_level : "Ainda não definido"}</span>
+                    <span class="grey-3">${depFind.companies.name}</span>
                 </div>
             `
 
             let btnOff = document.createElement("button")
-            btnOff.classList.add("button-base", "button-brand-2")
+            btnOff.classList.add("button-base", "button-alert", "button-base-2")
             btnOff.id = "off"
             btnOff.innerText = "Desligar"
 

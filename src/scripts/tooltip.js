@@ -14,18 +14,18 @@ const tooltip = (status, title, message='', link='') => {
         <div class="circle circle-sucess">
             <img src="../../assets/img/check.png" alt="Mensagem de ${status}">
         </div>
-        <h3 class="font-4-semibold">${title}</h3>
+        <h3 class="font-4-semibold sucess">${title}</h3>
         `
         modalInforByUser.append(containerMessage)
 
         if (message.length > 0) {
             if (link.length > 0) {
                 text.innerHTML = `
-                <span class="">${message} <a href="../../pages/login/index.html" class="">${link}</a></span>
+                <span class="font-5-regular brand-2">${message} <a href="../../pages/login/index.html" class="">${link}</a></span>
             `
             } else {
                 text.innerHTML = `
-                <span class="">${message}</span>
+                <span class="font-5-regular grey-2">${message}</span>
             `
             }
 
@@ -37,14 +37,14 @@ const tooltip = (status, title, message='', link='') => {
         <div class="circle circle-fail">
             <img src="../../assets/img/gross-dark-cross.png" alt="Mensagem de ${status}">
         </div>
-        <h3 class="font-4-semibold">${title}</h3>
+        <h3 class="font-4-semibold alert">${title}</h3>
         `
         
         modalInforByUser.append(containerMessage)
 
         if (message.length > 0) {
             text.innerHTML = `
-                <span class="">${message}</span>
+                <span class="font-5-regular grey-2">${message}</span>
             `
 
             modalInforByUser.append(text)
