@@ -89,16 +89,18 @@ async function eventSelectUserNoCompany(select) {
     })
 
     if (select.options[select.selectedIndex].text == "Selecionar Usuário") {
-        select.style.color = "var(--color-grey-400)";
+        select.classList.add("grey-4")
     }
 
     select.addEventListener("change", () => {
         let companyTextCurrency = select.options[select.selectedIndex].text
 
-        if (companyTextCurrency == "Selecionar Empresa") {
-            select.style.color = "var(--color-grey-400)";
+        if (companyTextCurrency == "Selecionar Usuário") {
+            select.classList.remove("brand-2", "font-5-semibold")
+            select.classList.add("grey-4")
         } else {
-            select.style.color = "var(--color-grey-100)";
+            select.classList.remove("grey-4")
+            select.classList.add("brand-2", "font-5-semibold")
         }
     })
 }

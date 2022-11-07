@@ -73,6 +73,10 @@
     gap: var(--gap-6);
 }
 
+.container-user-registered > h1 {
+    text-align: center;
+}
+
 .list-user-registered {
     display: flex;
     gap: var(--gap-1);
@@ -191,7 +195,7 @@ option {
         width: 10px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--color-grey-400);
+        background-color: var(--color-brand-200);
         border-radius: var(--radius-1);
     }
 

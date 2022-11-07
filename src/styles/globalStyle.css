@@ -3,8 +3,6 @@
 :root {
     --color-brand-100: #0e1f40;
     --color-brand-200: #274e9c;
-    --color-brand-300: #ff3e9d;
-    --color-brand-400: #ff0078;
     --color-grey-000: #15171a;
     --color-grey-100: #212529;
     --color-grey-200: #2b2f33;
@@ -47,6 +45,7 @@
     text-decoration: none;
     list-style: none;
     font-family: "Inter", sans-serif;
+    color: var(--color-grey-000);
 }
 
 .container {
