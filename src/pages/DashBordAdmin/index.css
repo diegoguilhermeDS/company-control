@@ -223,6 +223,7 @@ option {
     /* Style Main desktop */
     body {
         padding-bottom: 50px;
+        position: relative;
     }
     .container-list-department {
         justify-content: space-between;

@@ -36,6 +36,15 @@
     margin: 0 auto;
 }
 
+.modal-h {
+    height: 100%;
+}
+
+.modal-top {
+    transition: 0.3s ease;
+    top: 15px;
+}
+
 /* Style Modal Tooltip */
 .modal-communication {
     max-width: 27.5rem;
@@ -83,6 +92,8 @@
     background-color: var(--color-feedback-alert);
     text-align: start;
 }
+
+
 
 
 @keyframes showModalInfor {

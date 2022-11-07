@@ -106,6 +106,8 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
 
         eventSubmitDeleteModal(btnCreate, depFind.uuid)
     } else if (type == 'edit-user') {
+        containerModal.classList.add("modal-h")
+
         modal.innerHTML = `
             <button class="button-close"><img src="../../assets/img/Vector (4).png" alt="icon close"></button>
             <h2 class="font-2-bold">Editar Usuário</h2>
@@ -137,6 +139,8 @@ export async function createModalBase(type, uuidCard='', uuidUser = '') {
         eventSelectInforUserEdit(selectLevel, selectModality)
         eventSubmitEditUser(btnSave, selectModality, selectLevel, uuidUser)
     } else if (type == 'delete-user') {
+        containerModal.classList.add("modal-h", "modal-top")
+
         let btnCreate = document.createElement("button")
         btnCreate.classList.add("button-base", "button-sucess")
         btnCreate.innerText = "Deletar"
